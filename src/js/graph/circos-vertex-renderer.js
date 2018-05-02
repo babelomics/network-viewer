@@ -3,7 +3,7 @@ function CircosVertexRenderer(args) {
 
     //defaults
     this.shape = 'circle';
-    this.size = 30;
+    this.size = 15;
     this.color = '#FAFAFA';
     this.strokeSize = 2;
     this.strokeColor = '#888888';
