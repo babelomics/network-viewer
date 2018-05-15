@@ -14,7 +14,7 @@
         }
 
         #main .horizontal.layout > div,
-        stv-select {
+        elm-select {
             margin: 0 0 4px 4px;
         }
 
@@ -43,81 +43,81 @@
             <div class="title">Node related settings</div>
 
             <div class="horizontal layout">
-                <label class="stv">Charge:</label>
+                <label class="elm">Charge:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" value="{{charge::input}}">
+                    <input class="elm" type="number" value="{{charge::input}}">
                 </div>
 
-                <stv-select style="width:114px;">
-                    <stv-option value="none">None</stv-option>
+                <elm-select style="width:114px;">
+                    <elm-option value="none">None</elm-option>
                     <template is="dom-repeat" items="{{vertexColumns}}" as="column">
-                        <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                        <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                     </template>
-                </stv-select>
+                </elm-select>
             </div>
             <br>
 
             <div class="title">Edge related settings</div>
             <div class="horizontal layout">
-                <label class="stv">Link distance:</label>
+                <label class="elm">Link distance:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" min="0" value="{{linkDistance::input}}">
+                    <input class="elm" type="number" min="0" value="{{linkDistance::input}}">
                 </div>
 
-                <stv-select style="width:114px;">
-                    <stv-option value="none">None</stv-option>
+                <elm-select style="width:114px;">
+                    <elm-option value="none">None</elm-option>
                     <template is="dom-repeat" items="{{edgeColumns}}" as="column">
-                        <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                        <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                     </template>
-                </stv-select>
+                </elm-select>
             </div>
 
             <div class="horizontal layout">
-                <label class="stv">Link strength:</label>
+                <label class="elm">Link strength:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" min="0" max="1" step="0.1" value="{{linkStrength::input}}">
+                    <input class="elm" type="number" min="0" max="1" step="0.1" value="{{linkStrength::input}}">
                 </div>
 
-                <stv-select style="width:114px;">
-                    <stv-option style="width:11" value="none">None</stv-option>
+                <elm-select style="width:114px;">
+                    <elm-option style="width:11" value="none">None</elm-option>
                     <template is="dom-repeat" items="{{edgeColumns}}" as="column">
-                        <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                        <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                     </template>
-                </stv-select>
+                </elm-select>
             </div>
             <br>
 
             <div class="title">Global settings</div>
 
             <div class="horizontal layout">
-                <label class="stv">Friction:</label>
+                <label class="elm">Friction:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" min="0" max="1" step="0.1" value="{{friction::input}}">
+                    <input class="elm" type="number" min="0" max="1" step="0.1" value="{{friction::input}}">
                 </div>
             </div>
             <div class="horizontal layout">
-                <label class="stv">Gravity:</label>
+                <label class="elm">Gravity:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" min="0" step="0.1" value="{{gravity::input}}">
+                    <input class="elm" type="number" min="0" step="0.1" value="{{gravity::input}}">
                 </div>
             </div>
             <div class="horizontal layout">
-                <label class="stv">Charge distance:</label>
+                <label class="elm">Charge distance:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" min="0" value="{{chargeDistance::input}}">
+                    <input class="elm" type="number" min="0" value="{{chargeDistance::input}}">
                 </div>
             </div>
         </div>
 
         <div class="footer horizontal layout center">
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
+            <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
         </div>
 
     </template>

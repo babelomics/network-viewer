@@ -36,7 +36,7 @@
     <template>
         <div class="attributelist flex">
             <template is="dom-repeat" items="{{pathwayList}}" as="item" index-as="index">
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" on-click="handleItemSelect" disabled$="{{loading}}" name="pw" />
                     <span data-selected$="{{item.selected}}">{{item.text}}</span>
                 </label>
@@ -44,14 +44,14 @@
         </div>
 
         <div class="footer horizontal layout flex">
-            <div class="stv-txt">
+            <div class="elm-txt">
                 <template is="dom-if" if="{{loading}}">
                     <i class="fa fa-spinner fa-spin" style="margin-right: 5px;"></i>
                 </template>
                 <span>{{message}}</span>
             </div>
             <!--<div class="flex"></div>-->
-            <!--<div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleGo">Search</div>-->
+            <!--<div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleGo">Search</div>-->
         </div>
     </template>
 

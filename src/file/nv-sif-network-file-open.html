@@ -29,19 +29,19 @@
     <template>
 
         <div style="padding:10px 15px;">
-            <label class="stv">Select network SIF file:</label>
+            <label class="elm">Select network SIF file:</label>
 
-            <div class="stv-btn" on-click="handleBrowseClick">{{fileName}}</div>
+            <div class="elm-btn" on-click="handleBrowseClick">{{fileName}}</div>
             <input type="file" hidden id="fileInput" required on-change="handleInputChange">
         </div>
 
-        <stv-table id="table" enable-paging page-size="12" columns="{{columns}}" data="{{parsedData}}" style="height:436px"></stv-table>
+        <elm-table id="table" enable-paging page-size="12" columns="{{columns}}" data="{{parsedData}}" style="height:436px"></elm-table>
 
         <div class="footer horizontal layout center">
-            <div class="stv-txt">{{message}}</div>
+            <div class="elm-txt">{{message}}</div>
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width:100px;" on-click="handleCancel">Cancel</div>
-            <div class="stv-btn stv-btn-shdw" style="width:100px;" on-click="handleOk">OK</div>
+            <div class="elm-btn elm-btn-shdw" style="width:100px;" on-click="handleCancel">Cancel</div>
+            <div class="elm-btn elm-btn-shdw" style="width:100px;" on-click="handleOk">OK</div>
         </div>
 
         <nv-graph id="graph" vertices="{{vertices}}" edges="{{edges}}"></nv-graph>

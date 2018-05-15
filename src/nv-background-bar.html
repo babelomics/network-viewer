@@ -1,7 +1,7 @@
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../iron-flex-layout/iron-flex-layout-classes.html">
 
-<link rel="import" href="../../stevia-elements/src/dropdown/stv-dropdown.html">
+<link rel="import" href="../../cba-elements/src/dropdown/elm-dropdown.html">
 <script src="../../fabric.js/dist/fabric.min.js"></script>
 
 <dom-module id="nv-background-bar">
@@ -21,21 +21,21 @@
             margin-left: 10px;
         }
 
-        .stv-context {
+        .elm-context {
             min-width: 200px;
             cursor: pointer;
         }
 
-        .stv-btn {
+        .elm-btn {
             text-align: center;
         }
 
-        .stv-btn {
+        .elm-btn {
             /*color: var(--text-primary-color);*/
             /*background-color: var(--dark-button-color);*/
         }
 
-        .stv-btn:hover {
+        .elm-btn:hover {
             /*background-color: var(--light-button-color);*/
         }
 
@@ -47,23 +47,23 @@
     </style>
     <template>
         <div id="bar" class="horizontal layout center">
-            <div title="Select" class="stv-btn" data-backmode="select" data-checked$="{{isSelected(backmode,'select')}}" on-click="handleMode">
+            <div title="Select" class="elm-btn" data-backmode="select" data-checked$="{{isSelected(backmode,'select')}}" on-click="handleMode">
                 <i class="fa fa-mouse-pointer" style="margin-left:2px;"></i>
             </div>
             <div style="margin-left:10px;"></div>
-            <div title="Add square" class="stv-btn br0" data-backmode="square" data-checked$="{{isSelected(backmode,'square')}}" on-click="handleMode">
+            <div title="Add square" class="elm-btn br0" data-backmode="square" data-checked$="{{isSelected(backmode,'square')}}" on-click="handleMode">
                 <i class="fa fa-stop"></i>
             </div>
-            <div title="Add circle" class="stv-btn br0" data-backmode="circle" data-checked$="{{isSelected(backmode,'circle')}}" on-click="handleMode">
+            <div title="Add circle" class="elm-btn br0" data-backmode="circle" data-checked$="{{isSelected(backmode,'circle')}}" on-click="handleMode">
                 <i class="fa fa-circle"></i>
             </div>
-            <div title="Add triangle" class="stv-btn br0" data-backmode="triangle" data-checked$="{{isSelected(backmode,'triangle')}}" on-click="handleMode">
+            <div title="Add triangle" class="elm-btn br0" data-backmode="triangle" data-checked$="{{isSelected(backmode,'triangle')}}" on-click="handleMode">
                 <i class="fa fa-play fa-rotate-270"></i>
             </div>
-            <div title="Add line" class="stv-btn br0" data-backmode="line" data-checked$="{{isSelected(backmode,'line')}}" on-click="handleMode">
+            <div title="Add line" class="elm-btn br0" data-backmode="line" data-checked$="{{isSelected(backmode,'line')}}" on-click="handleMode">
                 <i class="fa fa-minus fa-rotate-90"></i>
             </div>
-            <div title="Add Text" class="stv-btn" data-backmode="text" data-checked$="{{isSelected(backmode,'text')}}" on-click="handleMode">
+            <div title="Add Text" class="elm-btn" data-backmode="text" data-checked$="{{isSelected(backmode,'text')}}" on-click="handleMode">
                 <i class="fa fa-font"></i>
             </div>
 
@@ -71,11 +71,11 @@
             <div data-button id="strokeSizeButton" style="border-right: none; padding:0 5px;">
                 <i class="fa fa-paint-brush"></i>
             </div>
-            <stv-color-picker ctitle="Change the color of the selected elements" id="colorPicker" color="{{color}}" on-color-click="handleColor" style="float:left;width:90px;"></stv-color-picker>
+            <elm-color-picker ctitle="Change the color of the selected elements" id="colorPicker" color="{{color}}" on-color-click="handleColor" style="float:left;width:90px;"></elm-color-picker>
 
             <div style="margin-left:10px;"></div>
-            <stv-dropdown title="Change the size of the selected elements">
-                <div data-button id="strokeSizeButton" class="stv-btn" style="border-right: none;">
+            <elm-dropdown title="Change the size of the selected elements">
+                <div data-button id="strokeSizeButton" class="elm-btn" style="border-right: none;">
                     <i class="fa fa-pencil"></i>
                 </div>
                 <ul data-menu id="sizeMenu">
@@ -90,13 +90,13 @@
                     <li on-mousedown="handleStrokeSize" data-value="20">20 px</li>
                     <li on-mousedown="handleStrokeSize" data-value="24">24 px</li>
                 </ul>
-            </stv-dropdown>
-            <stv-color-picker ctitle="Change stroke color of the selected elements" id="strokeColor" color="{{strokeColor}}" on-color-click="handleStrokeColor" style="float:left;width:90px;"></stv-color-picker>
+            </elm-dropdown>
+            <elm-color-picker ctitle="Change stroke color of the selected elements" id="strokeColor" color="{{strokeColor}}" on-color-click="handleStrokeColor" style="float:left;width:90px;"></elm-color-picker>
 
             <div style="margin-left:10px;"></div>
 
-            <stv-dropdown title="Change the size of the selected elements">
-                <div data-button id="textSizeButton" class="stv-btn">
+            <elm-dropdown title="Change the size of the selected elements">
+                <div data-button id="textSizeButton" class="elm-btn">
                     <i class="fa fa-text-height"></i>
                 </div>
                 <ul data-menu id="textSizeMenu">
@@ -109,26 +109,26 @@
                     <li on-mousedown="handleTextSize" data-value="50">50 px</li>
                     <li on-mousedown="handleTextSize" data-value="60">60 px</li>
                 </ul>
-            </stv-dropdown>
+            </elm-dropdown>
 
             <div style="margin-left:10px;"></div>
-            <stv-select value="{{font}}" on-change="handleFont" style="width:140px;">
-                <stv-option value="Times New Roman">Times New Roman</stv-option>
-                <stv-option value="Oxygen">Oxygen</stv-option>
-                <stv-option value="Ubuntu">Ubuntu</stv-option>
-                <stv-option value="Ubuntu Mono">Ubuntu Mono</stv-option>
-                <stv-option value="Lato">Lato</stv-option>
-                <stv-option value="Roboto">Roboto</stv-option>
-            </stv-select>
+            <elm-select value="{{font}}" on-change="handleFont" style="width:140px;">
+                <elm-option value="Times New Roman">Times New Roman</elm-option>
+                <elm-option value="Oxygen">Oxygen</elm-option>
+                <elm-option value="Ubuntu">Ubuntu</elm-option>
+                <elm-option value="Ubuntu Mono">Ubuntu Mono</elm-option>
+                <elm-option value="Lato">Lato</elm-option>
+                <elm-option value="Roboto">Roboto</elm-option>
+            </elm-select>
 
             <div style="margin-left:20px;"></div>
-            <div title="Upload your own background image" on-click=handleBackgroundImage id="importBackgroundImageButton" class="stv-btn">
+            <div title="Upload your own background image" on-click=handleBackgroundImage id="importBackgroundImageButton" class="elm-btn">
                 <i class="fa fa-file-image-o"></i>
             </div>
             <input on-change=handleBackgroundImageField id="importBackgroundImageField" type="file" hidden>
         </div>
 
-        <ul id="imagecontextmenu" class="stv-context" hidden>
+        <ul id="imagecontextmenu" class="elm-context" hidden>
             <li on-click="remove">Remove</li>
         </ul>
 

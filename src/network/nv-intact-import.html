@@ -23,7 +23,7 @@
             margin: 3px;
         }
 
-        stv-select-box {
+        elm-select-box {
             height: 125px;
         }
 
@@ -41,50 +41,50 @@
         <form id="main" class="flex horizontal layout">
 
             <div id="left">
-                <label class="stv" style="margin-top: 2px;">Species:</label>
+                <label class="elm" style="margin-top: 2px;">Species:</label>
 
-                <stv-select-box id="species" options="{{species}}" name-attribute="id" title-attribute="_title">
-                </stv-select-box>
+                <elm-select-box id="species" options="{{species}}" name-attribute="id" title-attribute="_title">
+                </elm-select-box>
 
-                <label class="stv" style="margin-top: 10px;">Attributes:</label>
+                <label class="elm" style="margin-top: 10px;">Attributes:</label>
 
-                <stv-select-box id="columns" options="{{columns}}" on-select="handleEditSelect">
-                </stv-select-box>
+                <elm-select-box id="columns" options="{{columns}}" on-select="handleEditSelect">
+                </elm-select-box>
 
-                <label class="stv" style="margin-top: 10px;">Input:</label>
+                <label class="elm" style="margin-top: 10px;">Input:</label>
 
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" checked="{{checkSelectedMode(selectedMode,'nodes')}}" name="mode" on-change="handleSelectNodesList">
                     <span>Network nodes</span>
                 </label>
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" checked="{{checkSelectedMode(selectedMode,'selection')}}" name="mode" on-change="handleSelectSelectionList">
                     <span>Network selection</span>
                 </label>
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" checked="{{checkSelectedMode(selectedMode,'text')}}" name="mode" on-change="handleSelectTextList">
                     <span>List from text</span>
                 </label>
 
-                <div class="stv-btn stv-btn-shdw" style="width:150px;margin-top: 3px;" on-click="handleSelectFileList">
+                <div class="elm-btn elm-btn-shdw" style="width:150px;margin-top: 3px;" on-click="handleSelectFileList">
                     List from file ...
                 </div>
             </div>
 
-            <textarea class="stv flex" id="textarea"></textarea>
+            <textarea class="elm flex" id="textarea"></textarea>
 
         </form>
         <input on-change="handleInputFileChange" id="inputFile" type="file" hidden>
 
         <div class="footer horizontal layout flex">
-            <div class="stv-txt">
+            <div class="elm-txt">
                 <template is="dom-if" if="{{loading}}">
                     <i class="fa fa-spinner fa-spin" style="margin-right: 5px;"></i>
                 </template>
                 <span>{{message}}</span>
             </div>
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleGo">Search</div>
+            <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleGo">Search</div>
         </div>
     </template>
     <script>
@@ -134,7 +134,7 @@
                                 for (var i = 0; i < taxonomies[taxonomy].length; i++) {
                                     var species = taxonomies[taxonomy][i];
                                     for (var j = 0; j < species.assemblies.length; j++) {
-                                        var s = stv.utils.clone(species);
+                                        var s = elm.utils.clone(species);
                                         s.assembly = species.assemblies[j];
                                         s._title = s.scientificName + " " + s.assembly.name
                                         delete s.assemblies;

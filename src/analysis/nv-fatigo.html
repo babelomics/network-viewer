@@ -36,49 +36,49 @@
     </style>
     <template>
         <form id="main">
-            <div class="stv-formbox" style="margin-top:5px;">
-                <div class="stv-formtitle">Examples</div>
-                <div class="stv-formcontent">
-                    <div class="stv-btn stv-btn-shdw" style="display:inline-block" on-click="loadExample1" style="width:150px;">motor vs apoptosis
+            <div class="elm-formbox" style="margin-top:5px;">
+                <div class="elm-formtitle">Examples</div>
+                <div class="elm-formcontent">
+                    <div class="elm-btn elm-btn-shdw" style="display:inline-block" on-click="loadExample1" style="width:150px;">motor vs apoptosis
                     </div>
-                    <div class="stv-btn stv-btn-shdw" on-click="handleDownloadFile" data-example="example.zip" style="display:inline-block">
+                    <div class="elm-btn elm-btn-shdw" on-click="handleDownloadFile" data-example="example.zip" style="display:inline-block">
                         <i class="fa fa-download"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Define your comparison</div>
-                <div class="stv-formcontent">
-                    <label class="stv-control">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Define your comparison</div>
+                <div class="elm-formcontent">
+                    <label class="elm-control">
                         <input type="radio" name="comparisonRadio" value="list2list" on-click="comparisonChange" checked>
                         <span>Id list vs Id list</span>
                     </label>
-                    <label class="stv-control">
+                    <label class="elm-control">
                         <input type="radio" name="comparisonRadio" value="list2genome" on-click="comparisonChange">
                         <span>Id List vs Rest of genome</span>
                     </label>
-                    <label class="stv-control">
+                    <label class="elm-control">
                         <input type="radio" name="comparisonRadio" value="list2rest" on-click="comparisonChange">
                         <span>Id List vs Rest of ids contained in your annotations (complementary list)</span>
                     </label>
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Select your input file</div>
-                <div class="stv-formcontent">
-                    <stv-file-origin id="inputFile" selection-mode="file" allow-text-area allow-network bioformats="{{bioformats}}" projects="{{projects}}" columns="{{columns}}" items="{{items}}" selected="{{selected}}">
-                    </stv-file-origin>
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Select your input file</div>
+                <div class="elm-formcontent">
+                    <elm-file-origin id="inputFile" selection-mode="file" allow-text-area allow-network bioformats="{{bioformats}}" projects="{{projects}}" columns="{{columns}}" items="{{items}}" selected="{{selected}}">
+                    </elm-file-origin>
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">List 2</div>
-                <div class="stv-formcontent">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">List 2</div>
+                <div class="elm-formcontent">
                     <div id="option1">
-                        <stv-file-origin id="inputFile2" selection-mode="file" allow-text-area allow-network bioformats="{{bioformats}}" projects="{{projects}}" columns="{{columns}}" items="{{items}}" selected="{{selected}}">
-                        </stv-file-origin>
+                        <elm-file-origin id="inputFile2" selection-mode="file" allow-text-area allow-network bioformats="{{bioformats}}" projects="{{projects}}" columns="{{columns}}" items="{{items}}" selected="{{selected}}">
+                        </elm-file-origin>
 
                     </div>
                     <div id="option2" hidden>
@@ -90,233 +90,233 @@
                     </div>
                 </div>
             </div>
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Options</div>
-                <div id="options" class="stv-formcontent">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Options</div>
+                <div id="options" class="elm-formcontent">
                     <label>Fisher exact test</label>
 
-                    <div class="stv-select" style="width: 400px">
-                        <stv-select name="fisher" id="fisher" class="fc-combobox" type="text" value="two-tailed">
-                            <stv-option name="fisher_1" id="fisher_1" class="fc-combobox-item" value="two-tailed">Two tailed
-                            </stv-option>
-                            <stv-option name="fisher_2" id="fisher_2" class="fc-combobox-item" value="greater">
+                    <div class="elm-select" style="width: 400px">
+                        <elm-select name="fisher" id="fisher" class="fc-combobox" type="text" value="two-tailed">
+                            <elm-option name="fisher_1" id="fisher_1" class="fc-combobox-item" value="two-tailed">Two tailed
+                            </elm-option>
+                            <elm-option name="fisher_2" id="fisher_2" class="fc-combobox-item" value="greater">
                                 Over-represented terms in list 1 (genome comparison)
-                            </stv-option>
-                            <stv-option name="fisher_3" id="fisher_3" class="fc-combobox-item" value="less">Over-represented terms in list 2
-                            </stv-option>
-                        </stv-select>
+                            </elm-option>
+                            <elm-option name="fisher_3" id="fisher_3" class="fc-combobox-item" value="less">Over-represented terms in list 2
+                            </elm-option>
+                        </elm-select>
                     </div>
                     <br>
                     <label>Remove duplicates</label>
 
-                    <div class="stv-select" style="width: 400px">
-                        <stv-select name="duplicates" id="duplicates" class="fc-combobox" type="text" value="never">
-                            <stv-option name="duplicates_1" id="duplicates_1" class="fc-combobox-item" value="never">
+                    <div class="elm-select" style="width: 400px">
+                        <elm-select name="duplicates" id="duplicates" class="fc-combobox" type="text" value="never">
+                            <elm-option name="duplicates_1" id="duplicates_1" class="fc-combobox-item" value="never">
                                 Never
-                            </stv-option>
-                            <stv-option name="duplicates_2" id="duplicates_2" class="fc-combobox-item" value="each">
+                            </elm-option>
+                            <elm-option name="duplicates_2" id="duplicates_2" class="fc-combobox-item" value="each">
                                 Remove on each list separately
-                            </stv-option>
-                            <stv-option name="duplicates_3" id="duplicates_3" class="fc-combobox-item" value="all">
+                            </elm-option>
+                            <elm-option name="duplicates_3" id="duplicates_3" class="fc-combobox-item" value="all">
                                 Remove on each list and common ids
-                            </stv-option>
-                            <stv-option name="duplicates_4" id="duplicates_4" class="fc-combobox-item" value="ref">
+                            </elm-option>
+                            <elm-option name="duplicates_4" id="duplicates_4" class="fc-combobox-item" value="ref">
                                 Remove from list2 those appearing in list1 (complementary list)
-                            </stv-option>
-                        </stv-select>
+                            </elm-option>
+                        </elm-select>
                     </div>
                 </div>
             </div>
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Databases</div>
-                <div class="stv-formcontent">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Databases</div>
+                <div class="elm-formcontent">
                     <div id="databases">
-                        <div class="stv-select" style="width: 250px">
-                            <stv-select name="species" id="species" class="fc-combobox" type="text" value="none" on-change="handleSpecies">
-                                <stv-option name="species_1" id="species_1" class="fc-combobox-item" value="none" selected="selected">Select an organism
-                                </stv-option>
-                                <!--<stv-option name="species_1" id="species_1" class="fc-combobox-item" value="none" >Select an organism</stv-option>-->
-                                <stv-option name="species_2" id="species_2" class="fc-combobox-item" value="hsa">
+                        <div class="elm-select" style="width: 250px">
+                            <elm-select name="species" id="species" class="fc-combobox" type="text" value="none" on-change="handleSpecies">
+                                <elm-option name="species_1" id="species_1" class="fc-combobox-item" value="none" selected="selected">Select an organism
+                                </elm-option>
+                                <!--<elm-option name="species_1" id="species_1" class="fc-combobox-item" value="none" >Select an organism</elm-option>-->
+                                <elm-option name="species_2" id="species_2" class="fc-combobox-item" value="hsa">
                                     Human (homo sapiens)
-                                </stv-option>
-                                <stv-option name="species_3" id="species_3" class="fc-combobox-item" value="mmu">
+                                </elm-option>
+                                <elm-option name="species_3" id="species_3" class="fc-combobox-item" value="mmu">
                                     Mouse (musmusculus)
-                                </stv-option>
-                                <stv-option name="species_4" id="species_4" class="fc-combobox-item" value="rno">
+                                </elm-option>
+                                <elm-option name="species_4" id="species_4" class="fc-combobox-item" value="rno">
                                     Rat (rattusnorvegicus)
-                                </stv-option>
-                                <stv-option name="species_5" id="species_5" class="fc-combobox-item" value="dme">
+                                </elm-option>
+                                <elm-option name="species_5" id="species_5" class="fc-combobox-item" value="dme">
                                     Fruitfly (drosophila melanogaster)
-                                </stv-option>
-                                <!--<stv-option name="species_6" id="species_6" class="fc-combobox-item" value="bta">Cow (bos taurus)</stv-option>-->
-                                <stv-option name="species_7" id="species_7" class="fc-combobox-item" value="dre">
+                                </elm-option>
+                                <!--<elm-option name="species_6" id="species_6" class="fc-combobox-item" value="bta">Cow (bos taurus)</elm-option>-->
+                                <elm-option name="species_7" id="species_7" class="fc-combobox-item" value="dre">
                                     Zebrafish (danio rerio)
-                                </stv-option>
-                                <stv-option name="species_8" id="species_8" class="fc-combobox-item" value="sce">
+                                </elm-option>
+                                <elm-option name="species_8" id="species_8" class="fc-combobox-item" value="sce">
                                     Saccharomyces cerevisiae
-                                </stv-option>
-                                <stv-option name="species_9" id="species_9" class="fc-combobox-item" value="cel">
+                                </elm-option>
+                                <elm-option name="species_9" id="species_9" class="fc-combobox-item" value="cel">
                                     Caenorhabditis elegans
-                                </stv-option>
-                                <stv-option name="species_10" id="species_10" class="fc-combobox-item" value="ath">
+                                </elm-option>
+                                <elm-option name="species_10" id="species_10" class="fc-combobox-item" value="ath">
                                     Arabidopsis thaliana
-                                </stv-option>
-                            </stv-select>
+                                </elm-option>
+                            </elm-select>
                         </div>
                         <br>
 
                         <div>
                             <div class="horizontal layout">
-                                <label class="stv-control">
+                                <label class="elm-control">
                                     <input name="go_bp" id="go_bp" type="checkbox" value="gobp">
                                     <span>GO biological process</span>
                                 </label>
 
-                                <div id="bpOptionsButton" class="stv-btn stv-btn-shdw" on-click="bpOptionsFunction">
+                                <div id="bpOptionsButton" class="elm-btn elm-btn-shdw" on-click="bpOptionsFunction">
                                     Show options...
                                 </div>
                             </div>
                             <div id="bpOptions" class="db_options" hidden>
                                 Filter terms by number of annotated ids in DB
                                 <br>
-                                <label class="stv">Minimum</label>
-                                <input name="go_bp_min_num_genes" id="go_bp_min_num_genes" class="stv fc-int fc-text" type="text" value="5" size="10">
-                                <label class="stv">Maximum</label>
-                                <input name="go_bp_max_num_genes" id="go_bp_max_num_genes" class="stv fc-int fc-text" type="text" value="500" size="10">
+                                <label class="elm">Minimum</label>
+                                <input name="go_bp_min_num_genes" id="go_bp_min_num_genes" class="elm fc-int fc-text" type="text" value="5" size="10">
+                                <label class="elm">Maximum</label>
+                                <input name="go_bp_max_num_genes" id="go_bp_max_num_genes" class="elm fc-int fc-text" type="text" value="500" size="10">
                                 <!--Filter terms by keywords-->
                                 <!--<input name="go_bp_keyword_list" id="go_bp_keyword_list" class="fc-textbox fc-text" type="text" value="" placeholder="(e.g. metabolism cancer)">-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_bp_keyword_operator_1" name="go_bp_keyword_operator" class="fc-radioitem" type="radio" value="all" checked="checked"> All keywords-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_bp_keyword_operator_2" name="go_bp_keyword_operator" class="fc-radioitem" type="radio" value="any">An keyword-->
                             </div>
                             <br>
 
                             <div class="horizontal layout">
-                                <label class="stv-control">
+                                <label class="elm-control">
                                     <input name="go_mf" id="go_mf" type="checkbox" value="gomf">
                                     <span>GO molecular function</span>
                                 </label>
 
-                                <div id="mfOptionsButton" class="stv-btn stv-btn-shdw" on-click="mfOptionsFunction">
+                                <div id="mfOptionsButton" class="elm-btn elm-btn-shdw" on-click="mfOptionsFunction">
                                     Show options...
                                 </div>
                             </div>
                             <div id="mfOptions" class="db_options" hidden>
                                 Filter terms by number of annotated ids in DB
                                 <br>
-                                <label class="stv">Minimum</label>
-                                <input name="go_mf_min_num_genes" id="go_mf_min_num_genes" class="stv fc-int fc-text" type="text" value="5" size="10">
-                                <label class="stv">Maximum</label>
-                                <input name="go_mf_max_num_genes" id="go_mf_max_num_genes" class="stv fc-int fc-text" type="text" value="500" size="10">
+                                <label class="elm">Minimum</label>
+                                <input name="go_mf_min_num_genes" id="go_mf_min_num_genes" class="elm fc-int fc-text" type="text" value="5" size="10">
+                                <label class="elm">Maximum</label>
+                                <input name="go_mf_max_num_genes" id="go_mf_max_num_genes" class="elm fc-int fc-text" type="text" value="500" size="10">
                                 <!--Filter terms by keywords-->
                                 <!--<input name="go_mf_keyword_list" id="go_mf_keyword_list" class="fc-textbox fc-text" type="text" value="" placeholder="(e.g. metabolism cancer)">-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_mf_keyword_operator_1" name="go_mf_keyword_operator" class="fc-radioitem" type="radio" value="all" checked="checked"> All keywords-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_mf_keyword_operator_2" name="go_mf_keyword_operator" class="fc-radioitem" type="radio" value="any">An keyword-->
                             </div>
                             <br>
 
                             <div class="horizontal layout">
-                                <label class="stv-control">
+                                <label class="elm-control">
                                     <input name="go_cc" id="go_cc" type="checkbox" value="gocc">
                                     <span>GO cellular component</span>
                                 </label>
 
-                                <div id="ccOptionsButton" class="stv-btn stv-btn-shdw" on-click="ccOptionsFunction">
+                                <div id="ccOptionsButton" class="elm-btn elm-btn-shdw" on-click="ccOptionsFunction">
                                     Show options...
                                 </div>
                             </div>
                             <div id="ccOptions" class="db_options" hidden>
                                 Filter terms by number of annotated ids in DB
                                 <br>
-                                <label class="stv">Minimum</label>
-                                <input name="go_cc_min_num_genes" id="go_cc_min_num_genes" class="stv fc-int fc-text" type="text" value="5" size="10">
-                                <label class="stv">Maximum</label>
-                                <input name="go_cc_max_num_genes" id="go_cc_max_num_genes" class="stv fc-int fc-text" type="text" value="500" size="10">
+                                <label class="elm">Minimum</label>
+                                <input name="go_cc_min_num_genes" id="go_cc_min_num_genes" class="elm fc-int fc-text" type="text" value="5" size="10">
+                                <label class="elm">Maximum</label>
+                                <input name="go_cc_max_num_genes" id="go_cc_max_num_genes" class="elm fc-int fc-text" type="text" value="500" size="10">
                                 <!--Filter terms by keywords-->
                                 <!--<input name="go_cc_keyword_list" id="go_cc_keyword_list" class="fc-textbox fc-text" type="text" value="" placeholder="(e.g. metabolism cancer)">-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_cc_keyword_operator_1" name="go_cc_keyword_operator" class="fc-radioitem" type="radio" value="all" checked="checked"> All keywords-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_cc_keyword_operator_2" name="go_cc_keyword_operator" class="fc-radioitem" type="radio" value="any">An keyword-->
                             </div>
                             <br>
 
                             <div class="horizontal layout">
-                                <label class="stv-control">
+                                <label class="elm-control">
                                     <input name="go_slim" id="go_slim" type="checkbox" value="go-slim">
                                     <span>GOSlim GOA</span>
                                 </label>
 
-                                <div id="go_slimOptionsButton" class="stv-btn stv-btn-shdw" on-click="slimOptionsFunction">
+                                <div id="go_slimOptionsButton" class="elm-btn elm-btn-shdw" on-click="slimOptionsFunction">
                                     Show options...
                                 </div>
                             </div>
                             <div id="slimOptions" class="db_options" hidden>
                                 Filter terms by number of annotated ids in DB
                                 <br>
-                                <label class="stv">Minimum</label>
-                                <input name="go_slim_min_num_genes" id="go_slim_min_num_genes" class="stv fc-int fc-text" type="text" value="5" size="10">
-                                <label class="stv">Maximum</label>
-                                <input name="go_slim_max_num_genes" id="go_slim_max_num_genes" class="stv fc-int fc-text" type="text" value="500" size="10">
+                                <label class="elm">Minimum</label>
+                                <input name="go_slim_min_num_genes" id="go_slim_min_num_genes" class="elm fc-int fc-text" type="text" value="5" size="10">
+                                <label class="elm">Maximum</label>
+                                <input name="go_slim_max_num_genes" id="go_slim_max_num_genes" class="elm fc-int fc-text" type="text" value="500" size="10">
                                 <!--Filter terms by keywords-->
                                 <!--<input name="go_slim_keyword_list" id="go_slim_keyword_list" class="fc-textbox fc-text" type="text" value="" placeholder="(e.g. metabolism cancer)">-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_slim_keyword_operator_1" name="go_slim_keyword_operator" class="fc-radioitem" type="radio" value="all" checked="checked"> All keywords-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_slim_keyword_operator_2" name="go_slim_keyword_operator" class="fc-radioitem" type="radio" value="any">An keyword-->
                             </div>
                             <br>
 
                             <div class="horizontal layout">
-                                <label class="stv-control">
+                                <label class="elm-control">
                                     <input name="interpro" id="interpro" type="checkbox" value="interpro">
                                     <span>Interpro</span>
                                 </label>
 
-                                <div id="interproOptionsButton" class="stv-btn stv-btn-shdw" on-click="interproOptionsFunction">Show options...
+                                <div id="interproOptionsButton" class="elm-btn elm-btn-shdw" on-click="interproOptionsFunction">Show options...
                                 </div>
                             </div>
                             <div id="interproOptions" class="db_options" hidden>
                                 Filter terms by number of annotated ids in DB
                                 <br>
-                                <label class="stv">Minimum</label>
-                                <input name="interpro_min_num_genes" id="interpro_min_num_genes" class="stv fc-int fc-text" type="text" value="5" size="10">
-                                <label class="stv">Maximum</label>
-                                <input name="interpro_max_num_genes" id="interpro_max_num_genes" class="stv fc-int fc-text" type="text" value="500" size="10">
+                                <label class="elm">Minimum</label>
+                                <input name="interpro_min_num_genes" id="interpro_min_num_genes" class="elm fc-int fc-text" type="text" value="5" size="10">
+                                <label class="elm">Maximum</label>
+                                <input name="interpro_max_num_genes" id="interpro_max_num_genes" class="elm fc-int fc-text" type="text" value="500" size="10">
                                 <!--Filter terms by keywords-->
                                 <!--<input name="go_interpro_keyword_list" id="go_interpro_keyword_list" class="fc-textbox fc-text" type="text" value="" placeholder="(e.g. metabolism cancer)">-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_interpro_keyword_operator_1" name="go_interpro_keyword_operator" class="fc-radioitem" type="radio" value="all" checked="checked"> All keywords-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="go_interpro_keyword_operator_2" name="go_interpro_keyword_operator" class="fc-radioitem" type="radio" value="any">An keyword-->
                             </div>
                             <br>
 
                             <div class="horizontal layout">
-                                <label class="stv-control">
+                                <label class="elm-control">
                                     <input name="recon" id="recon" type="checkbox" value="recon">
                                     <span>Genome-Scale Metabolic Network</span>
                                 </label>
 
-                                <div id="reconOptionsButton" class="stv-btn stv-btn-shdw" on-click="reconOptionsFunction">
+                                <div id="reconOptionsButton" class="elm-btn elm-btn-shdw" on-click="reconOptionsFunction">
                                     Show options...
                                 </div>
                             </div>
                             <div id="reconOptions" class="db_options" hidden>
                                 Filter terms by number of annotated ids in DB
                                 <br>
-                                <label class="stv">Minimum</label>
-                                <input name="recon_min_num_genes" id="recon_min_num_genes" class="stv fc-int fc-text" type="text" value="5" size="10">
-                                <label class="stv">Maximum</label>
-                                <input name="recon_max_num_genes" id="recon_max_num_genes" class="stv fc-int fc-text" type="text" value="500" size="10">
+                                <label class="elm">Minimum</label>
+                                <input name="recon_min_num_genes" id="recon_min_num_genes" class="elm fc-int fc-text" type="text" value="5" size="10">
+                                <label class="elm">Maximum</label>
+                                <input name="recon_max_num_genes" id="recon_max_num_genes" class="elm fc-int fc-text" type="text" value="500" size="10">
                                 <!--Filter terms by keywords-->
                                 <!--<input name="recon_keyword_list" id="recon_keyword_list" class="fc-textbox fc-text" type="text" value="" placeholder="(e.g. metabolism cancer)">-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="recon_keyword_operator_1" name="recon_keyword_operator" class="fc-radioitem" type="radio" value="all" checked="checked"> All keywords-->
-                                <!--<label class="stv-control">
+                                <!--<label class="elm-control">
                             <input id="recon_keyword_operator_2" name="recon_keyword_operator" class="fc-radioitem" type="radio" value="any">An keyword-->
                             </div>
                             <br>
@@ -332,15 +332,15 @@
                     </div>
                     <div id="your_annotations_div">
                         <div class="horizontal layout">
-                            <label class="stv-control">
+                            <label class="elm-control">
                                 <input name="your_annotations" id="your_annotations" type="checkbox" value="">
                                 <span>Your annotations</span>
 
                             </label>
                         </div>
                         <div style="margin-left: 30px">
-                            <stv-file-origin id="annotationsFile" selection-mode="file" bioformats="{{annotationBioformats}}" projects="{{projects}}" columns="{{columns}}" items="{{items}}" selected="{{selected}}">
-                            </stv-file-origin>
+                            <elm-file-origin id="annotationsFile" selection-mode="file" bioformats="{{annotationBioformats}}" projects="{{projects}}" columns="{{columns}}" items="{{items}}" selected="{{selected}}">
+                            </elm-file-origin>
                         </div>
                     </div>
                 </div>
@@ -348,33 +348,33 @@
             </div>
 
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Job information</div>
-                <div class="stv-formcontent">
-                    <label class="stv">Output folder:</label>
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Job information</div>
+                <div class="elm-formcontent">
+                    <label class="elm">Output folder:</label>
 
-                    <stv-file-origin id="outdir" selection-mode="folder" on-ok-click="handleOutputClickOk" projects="{{projects}}">
-                    </stv-file-origin>
+                    <elm-file-origin id="outdir" selection-mode="folder" on-ok-click="handleOutputClickOk" projects="{{projects}}">
+                    </elm-file-origin>
 
-                    <label class="stv">Job name:</label>
+                    <label class="elm">Job name:</label>
                     <br>
-                    <input class="stv" type="text" id="jobName" required style="width:150px;">
+                    <input class="elm" type="text" id="jobName" required style="width:150px;">
                     <br>
-                    <label class="stv">Description:</label>
-                    <textarea class="stv" id="description" required></textarea>
+                    <label class="elm">Description:</label>
+                    <textarea class="elm" id="description" required></textarea>
                 </div>
             </div>
 
 
             <div class="horizontal layout center-justified">
-                <div class="stv-btn stv-btn-shdw stv-btn-big" on-click="handleForm">
+                <div class="elm-btn elm-btn-shdw elm-btn-big" on-click="handleForm">
                     <i class="fa fa-rocket"></i> &nbsp; Launch job
                 </div>
             </div>
             <br>
         </form>
         <div class="footer horizontal layout flex">
-            <div class="stv-txt">
+            <div class="elm-txt">
                 <template is="dom-if" if="{{loading}}">
                     <i class="fa fa-spinner fa-spin" style="margin-right: 5px;"></i>
                 </template>
@@ -670,7 +670,7 @@
                 if (this.loading === false) {
                     this.loading = true;
                     this.message = 'Launching job...';
-                    SteviaManager.jobs.create({
+                    CbaManager.jobs.create({
                         query: query,
                         request: {
                             //method: 'POST',
@@ -757,7 +757,7 @@
 
             _createExampleFolder: function(exampleFolder, study, callback) {
                 var me = this;
-                SteviaManager.files.createFolder({
+                CbaManager.files.createFolder({
                     query: {
                         sid: Cookies('bioinfo_sid'),
                         studyId: study.id,
@@ -781,7 +781,7 @@
             _searchExampleFolder: function(exampleFolder, callback) {
                 var me = this;
                 var study = me.$.outdir.$.browser.projects[0].studies[0];
-                SteviaManager.files.search({
+                CbaManager.files.search({
                     query: {
                         sid: Cookies('bioinfo_sid'),
                         studyId: study.id,

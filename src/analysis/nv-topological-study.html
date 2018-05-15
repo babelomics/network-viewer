@@ -38,40 +38,40 @@
 
             <div id="left">
 
-                <label class="stv">Consider network as directed:</label>
+                <label class="elm">Consider network as directed:</label>
 
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" checked name="type" on-change="handleDirectedNo">
                     <span>No</span>
                 </label>
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" name="type" on-change="handleDirectedYes">
                     <span>Yes</span>
                 </label>
 
-                <label class="stv">Consider network as weighted:</label>
+                <label class="elm">Consider network as weighted:</label>
 
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" checked name="weighted" on-change="handleWeightedNo">
                     <span>No</span>
                 </label>
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" name="weighted" on-change="handleWeightedYes">
                     <span>Yes</span>
                 </label>
 
                 <div hidden$="{{checkWeighted(selectedWeighted, 'T')}}">
-                    <label class="stv">Use attribute for weight:</label>
+                    <label class="elm">Use attribute for weight:</label>
 
-                    <stv-select-box style="height:100px;" id="columns" options="{{columns}}" on-select="handleEditSelect">
-                    </stv-select-box>
+                    <elm-select-box style="height:100px;" id="columns" options="{{columns}}" on-select="handleEditSelect">
+                    </elm-select-box>
 
                 </div>
 
             </div>
             <div id="right">
 
-                <label class="stv">Results:</label>
+                <label class="elm">Results:</label>
                 <template is="dom-if" if="{{checkResults(results)}}">
 
                     <div>Topology results are available as node attributes</div>
@@ -79,31 +79,31 @@
 
 
                     <div>
-                        <label class="stv">Average nodes per component:</label>
+                        <label class="elm">Average nodes per component:</label>
                         <span>{{results.avgNodesPerComponent}}</span>
                     </div>
                     <div>
-                        <label class="stv">Average shorthest path length:</label>
+                        <label class="elm">Average shorthest path length:</label>
                         <span>{{results.avgShortestPathLength}}</span>
                     </div>
                     <div>
-                        <label class="stv">Clustering coefficient:</label>
+                        <label class="elm">Clustering coefficient:</label>
                         <span>{{results.clusteringCoeff}}</span>
                     </div>
                     <div>
-                        <label class="stv">Diameter:</label>
+                        <label class="elm">Diameter:</label>
                         <span>{{results.diameter}}</span>
                     </div>
                     <div>
-                        <label class="stv">Number of components:</label>
+                        <label class="elm">Number of components:</label>
                         <span>{{results.numComponents}}</span>
                     </div>
                     <div>
-                        <label class="stv">Number of edges:</label>
+                        <label class="elm">Number of edges:</label>
                         <span>{{results.numEdges}}</span>
                     </div>
                     <div>
-                        <label class="stv">Number of nodes:</label>
+                        <label class="elm">Number of nodes:</label>
                         <span>{{results.numNodes}}</span>
                     </div>
 
@@ -117,14 +117,14 @@
         </form>
 
         <div class="footer horizontal layout flex">
-            <div class="stv-txt">
+            <div class="elm-txt">
                 <template is="dom-if" if="{{loading}}">
                     <i class="fa fa-spinner fa-spin" style="margin-right: 5px;"></i>
                 </template>
                 <span>{{message}}</span>
             </div>
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleGo">Run</div>
+            <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleGo">Run</div>
         </div>
 
     </template>
@@ -227,7 +227,7 @@
                     // # - infile: string. Path to the sif infile
                     // # - outdir: string. Path to the outdir
 
-                    SteviaManager.jobs.run({
+                    CbaManager.jobs.run({
                         query: {},
                         request: {
                             method: 'POST',

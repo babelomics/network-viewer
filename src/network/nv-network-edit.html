@@ -27,7 +27,7 @@
             width: calc(100% - 180px);
         }
 
-        #right > stv-table {
+        #right > elm-table {
             width: 100%;
         }
 
@@ -50,53 +50,53 @@
         <div id="main" class="horizontal layout">
             <div id="left" class="vertical layout">
                 <div class="horizontal layout">
-                    <div class="stv-btn stv-btn-shdw flex" on-click="handleView" data-value="edge" data-checked$="{{computeView(view, 'edge')}}">
+                    <div class="elm-btn elm-btn-shdw flex" on-click="handleView" data-value="edge" data-checked$="{{computeView(view, 'edge')}}">
                         Edges
                     </div>
-                    <div class="stv-btn stv-btn-shdw flex" on-click="handleView" data-value="node" data-checked$="{{computeView(view, 'node')}}">
+                    <div class="elm-btn elm-btn-shdw flex" on-click="handleView" data-value="node" data-checked$="{{computeView(view, 'node')}}">
                         Nodes
                     </div>
                 </div>
 
                 <br>
                 <template is="dom-if" if="{{computeView(view, 'edge')}}">
-                    <label class="stv">New interaction:</label>
+                    <label class="elm">New interaction:</label>
 
                     <div>
-                        <input class="stv" type="text" value="{{edgeSource::input}}" placeholder="Source id">
+                        <input class="elm" type="text" value="{{edgeSource::input}}" placeholder="Source id">
                     </div>
                     <div>
-                        <input class="stv" type="text" value="{{edgeRelation::input}}" placeholder="Relation">
+                        <input class="elm" type="text" value="{{edgeRelation::input}}" placeholder="Relation">
                     </div>
                     <div>
-                        <input class="stv" type="text" value="{{edgeTarget::input}}" placeholder="Target id">
+                        <input class="elm" type="text" value="{{edgeTarget::input}}" placeholder="Target id">
                     </div>
-                    <div class="stv-btn stv-btn-shdw" on-click="handleAddEdge">
+                    <div class="elm-btn elm-btn-shdw" on-click="handleAddEdge">
                         Add
                     </div>
                     <div class="text">{{interactionMessage}}</div>
-                    <div style="margin-top:20px;" class="stv-btn stv-btn-shdw" on-click="handleDeleteEdges">
+                    <div style="margin-top:20px;" class="elm-btn elm-btn-shdw" on-click="handleDeleteEdges">
                         Delete selected
                     </div>
                 </template>
 
                 <template is="dom-if" if="{{computeView(view, 'node')}}">
-                    <label class="stv">New node:</label>
+                    <label class="elm">New node:</label>
 
                     <div>
-                        <input class="stv" type="text" value="{{vertexId::input}}" placeholder="Node id">
+                        <input class="elm" type="text" value="{{vertexId::input}}" placeholder="Node id">
                     </div>
-                    <div class="stv-btn stv-btn-shdw" on-click="handleAddNode">
+                    <div class="elm-btn elm-btn-shdw" on-click="handleAddNode">
                         Add
                     </div>
-                    <div style="margin-top:20px;" class="stv-btn stv-btn-shdw" on-click="handleDeleteNodes">
+                    <div style="margin-top:20px;" class="elm-btn elm-btn-shdw" on-click="handleDeleteNodes">
                         Delete selected
                     </div>
                 </template>
             </div>
             <div id="right">
-                <stv-table id="edgeTable" class="flex" enable-paging page-size="16" enable-select style="height:560px" hidden$="{{!computeView(view, 'edge')}}" columns="{{edgeColumns}}" data="{{edges}}" selected="{{selectedEdges}}"></stv-table>
-                <stv-table id="vertexTable" class="flex" enable-paging page-size="16" enable-select style="height:560px" hidden$="{{!computeView(view, 'node')}}" columns="{{vertexColumns}}" data="{{vertices}}" selected="{{selectedVertices}}"></stv-table>
+                <elm-table id="edgeTable" class="flex" enable-paging page-size="16" enable-select style="height:560px" hidden$="{{!computeView(view, 'edge')}}" columns="{{edgeColumns}}" data="{{edges}}" selected="{{selectedEdges}}"></elm-table>
+                <elm-table id="vertexTable" class="flex" enable-paging page-size="16" enable-select style="height:560px" hidden$="{{!computeView(view, 'node')}}" columns="{{vertexColumns}}" data="{{vertices}}" selected="{{selectedVertices}}"></elm-table>
             </div>
         </div>
 

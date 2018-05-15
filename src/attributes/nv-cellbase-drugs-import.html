@@ -24,7 +24,7 @@
             margin: 5px;
         }
 
-        stv-select-box {
+        elm-select-box {
             overflow-y: auto;
             height: 150px;
         }
@@ -43,43 +43,43 @@
         <div id="main" class="flex horizontal layout">
 
             <div id="left">
-                <label class="stv">Species:</label>
+                <label class="elm">Species:</label>
 
-                <stv-select-box id="species" options="{{species}}" name-attribute="id" title-attribute="_title">
-                </stv-select-box>
+                <elm-select-box id="species" options="{{species}}" name-attribute="id" title-attribute="_title">
+                </elm-select-box>
 
-                <label class="stv" style="margin-top: 10px;">Attributes:</label>
+                <label class="elm" style="margin-top: 10px;">Attributes:</label>
 
-                <stv-select-box id="columns" options="{{columns}}">
-                </stv-select-box>
+                <elm-select-box id="columns" options="{{columns}}">
+                </elm-select-box>
 
             </div>
 
             <div id="right" class="flex vertical layout">
                 <div hidden$="{{!showResult}}">
-                    <label class="stv">Results:</label>
+                    <label class="elm">Results:</label>
                     <br>
                     <div>
                         Results are available as node attributes, select 'Attributes' menu and then "Edit node attributes" to see the results.
                     </div>
-                    <div class="stv-note stv-note-info">
+                    <div class="elm-note elm-note-info">
                         <b> Please read:</b> Some genes can be affected by none, one or more drugs, so you can hightlight the nodes with one or more with one color, or paint different colors if there is a gene affected by different drugs
                     </div>
                     <br>
                     <div>Use this button to show which genes have at least one drug or more.</div>
                     <br>
                     <div class="horizontal layout center-justified">
-                        <div class="stv-btn stv-btn-shdw" on-click="handleApplyColor">Apply color</div>
+                        <div class="elm-btn elm-btn-shdw" on-click="handleApplyColor">Apply color</div>
                     </div>
                     <br>
                     <div>Use this button to show all drugs as a pie chart on each gene.</div>
                     <br>
                     <div class="horizontal layout center-justified">
-                        <div class="stv-btn stv-btn-shdw" on-click="handleApplyMulticolor">Apply multiple colors</div>
+                        <div class="elm-btn elm-btn-shdw" on-click="handleApplyMulticolor">Apply multiple colors</div>
                     </div>
                 </div>
                 <div hidden$="{{showResult}}">
-                    <div class="stv-note stv-note-info">
+                    <div class="elm-note elm-note-info">
                         <b>Tip:</b> Please select an species and an attribute with the gene name, then press the "Go" button.
                     </div>
                 </div>
@@ -88,14 +88,14 @@
         </div>
 
         <div class="footer horizontal layout flex">
-            <div class="stv-txt">
+            <div class="elm-txt">
                 <template is="dom-if" if="{{loading}}">
                     <i class="fa fa-spinner fa-spin" style="margin-right: 5px;"></i>
                 </template>
                 <span>{{message}}</span>
             </div>
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleGo">Go</div>
+            <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleGo">Go</div>
         </div>
 
     </template>

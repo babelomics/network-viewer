@@ -63,7 +63,7 @@
             width: calc(100% - 220px);
         }
 
-        #right>stv-table {
+        #right>elm-table {
             width: 100%;
         }
 
@@ -96,7 +96,7 @@
             margin: 0 2px;
         }
 
-        .stv-formbox {
+        .elm-formbox {
             background-color: inherit;
         }
     </style>
@@ -104,56 +104,56 @@
         <div id="main" class="flex horizontal layout">
             <div id="left">
 
-                <div class="stv-formbox stv-fit">
-                    <div class="stv-formtitle">Edit</div>
-                    <div class="stv-formcontent vertical layout">
-                        <label class="stv">Edit attribute for selected items</label>
+                <div class="elm-formbox elm-fit">
+                    <div class="elm-formtitle">Edit</div>
+                    <div class="elm-formcontent vertical layout">
+                        <label class="elm">Edit attribute for selected items</label>
 
                         <div class="vertical layout">
-                            <stv-select id="selectEdit">
+                            <elm-select id="selectEdit">
                                 <template is="dom-repeat" items={{columns}} as="column" filter="isColumnEditable">
-                                    <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                                    <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                                 </template>
-                            </stv-select>
+                            </elm-select>
 
                             <div class="horizontal layout" style="margin-top: 3px;">
                                 <div class="flex">
-                                    <input class="stv" type="text" value="{{_newValue::input}}" placeholder="Attribute value">
+                                    <input class="elm" type="text" value="{{_newValue::input}}" placeholder="Attribute value">
                                 </div>
-                                <div class="stv-btn stv-btn-shdw newvalue" on-click="handleEditApply"></div>
+                                <div class="elm-btn elm-btn-shdw newvalue" on-click="handleEditApply"></div>
                             </div>
                         </div>
 
-                        <label class="stv" style="margin-top: 10px;">Add new attribute</label>
+                        <label class="elm" style="margin-top: 10px;">Add new attribute</label>
 
                         <div class="horizontal layout">
                             <div class="flex">
-                                <input type="text" class="stv" value="{{_newColumnName::input}}" placeholder="Attribute name">
+                                <input type="text" class="elm" value="{{_newColumnName::input}}" placeholder="Attribute name">
                             </div>
-                            <div class="stv-btn stv-btn-shdw newattr" on-click="handleAddApply"></div>
+                            <div class="elm-btn elm-btn-shdw newattr" on-click="handleAddApply"></div>
                         </div>
 
-                        <label class="stv" style="margin-top:10px;">Delete attribute</label>
+                        <label class="elm" style="margin-top:10px;">Delete attribute</label>
 
                         <div class="horizontal layout">
-                            <stv-select id="selectDelete" style="width:173px;">
+                            <elm-select id="selectDelete" style="width:173px;">
                                 <template is="dom-repeat" items={{columns}} as="column" filter="isColumnRemovable">
-                                    <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                                    <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                                 </template>
-                            </stv-select>
-                            <div class="stv-btn stv-btn-shdw remove" on-click="handleRemoveApply"></div>
+                            </elm-select>
+                            <div class="elm-btn elm-btn-shdw remove" on-click="handleRemoveApply"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="stv-formbox stv-fit flex" style="border-top-width:1px">
-                    <div class="stv-formtitle horizontal layout">
+                <div class="elm-formbox elm-fit flex" style="border-top-width:1px">
+                    <div class="elm-formtitle horizontal layout">
                         <div class="flex">Filters</div>
                         <div class="horizontal layout">
-                            <div class="stv-btn" data-checked$="{{isAddFilterSelected(_filterSelectedOption)}}" on-click="handleAddNewFilter">
+                            <div class="elm-btn" data-checked$="{{isAddFilterSelected(_filterSelectedOption)}}" on-click="handleAddNewFilter">
                                 <i class="fa fa-plus"></i>
                             </div>
-                            <div class="stv-btn" data-checked$="{{isViewFilterSelected(_filterSelectedOption)}}" on-click="handleViewFilters">
+                            <div class="elm-btn" data-checked$="{{isViewFilterSelected(_filterSelectedOption)}}" on-click="handleViewFilters">
                                 <i class="fa fa-eye"></i>
                             </div>
                             <template if="{{filters.length > 0}}">
@@ -163,7 +163,7 @@
                         </div>
                     </div>
 
-                    <div class="stv-formcontent" vertical layout>
+                    <div class="elm-formcontent" vertical layout>
 
                         <div hidden$="{{!isViewFilterSelected(_filterSelectedOption)}}" class="selbox" style="height: 280px;">
                             <template is="dom-if" if="{{!_thereAreFilters}}">
@@ -193,15 +193,15 @@
 
                         <div hidden$="{{!isAddFilterSelected(_filterSelectedOption)}}">
 
-                            <label class="stv">Attribute:</label>
+                            <label class="elm">Attribute:</label>
 
-                            <stv-select id="filterAttributeSelect">
+                            <elm-select id="filterAttributeSelect">
                                 <template is="dom-repeat" items={{columns}} as="column">
-                                    <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                                    <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                                 </template>
-                            </stv-select>
+                            </elm-select>
 
-                            <label class="stv">Data type:</label>
+                            <label class="elm">Data type:</label>
 
                             <div class="selbox">
                                 <div class="selitem flex" data-checked$="{{isAttributeString(_attributeType)}}" on-click="handleAttributeTypeSelect" data-name="string">String
@@ -211,7 +211,7 @@
                             </div>
 
                             <template is="dom-if" if="{{isAttributeString(_attributeType)}}">
-                                <label class="stv">String matching:</label>
+                                <label class="elm">String matching:</label>
 
                                 <div class="selbox" style="height: 122px;">
                                     <div class="selitem flex" data-checked$="{{isStringMatchExact(_stringMatch)}}" on-click="handleStringMatchSelect" data-name="exact">Exact
@@ -224,7 +224,7 @@
                             </template>
 
                             <template is="dom-if" if="{{isAttributeNumber(_attributeType)}}">
-                                <label class="stv">Number matching:</label>
+                                <label class="elm">Number matching:</label>
 
                                 <div class="selbox">
                                     <div class="selitem flex" data-checked$="{{isNumberMatchEquals(_numberMatch)}}" on-click="handleNumberMatchSelect" data-name="equals">Equals
@@ -246,9 +246,9 @@
 
                             <div style="margin-top:5px;" class="horizontal layout">
                                 <div class="flex">
-                                    <input type="text" class="stv" value="{{_queryString::input}}" placeholder="Query string">
+                                    <input type="text" class="elm" value="{{_queryString::input}}" placeholder="Query string">
                                 </div>
-                                <div class="stv-btn stv-btn-shdw" style="margin-left:3px;" on-click="handleCreateFilter">
+                                <div class="elm-btn elm-btn-shdw" style="margin-left:3px;" on-click="handleCreateFilter">
                                     Add filter
                                 </div>
                             </div>
@@ -259,18 +259,18 @@
 
             <div id="right" class="vertical layout">
                 <div id="topbar" class="bar horizontal layout center">
-                    <div class="stv-btn stv-btn-shdw" on-click="handleSelectAll">Select all</div>
-                    <div class="stv-btn stv-btn-shdw" on-click="handleDeselectAll">Deselect all</div>
+                    <div class="elm-btn elm-btn-shdw" on-click="handleSelectAll">Select all</div>
+                    <div class="elm-btn elm-btn-shdw" on-click="handleDeselectAll">Deselect all</div>
 
                     <div class="flex">
-                        <label class="stv-control">
+                        <label class="elm-control">
                             <input type="checkbox" checked="{{_showSelected::change}}">
                             <span title="Switch view beetwen all nodes or selected nodes">Show only selected</span>
                         </label>
                     </div>
                 </div>
 
-                <stv-table id="table" enable-paging enable-select enable-edit enable-resize columns="{{columns}}" data="{{_currentItems}}" selected="{{_currentSelected}}" page-size="15" style="height:530px" on-iron-resize="handleTableResize"></stv-table>
+                <elm-table id="table" enable-paging enable-select enable-edit enable-resize columns="{{columns}}" data="{{_currentItems}}" selected="{{_currentSelected}}" page-size="15" style="height:530px" on-iron-resize="handleTableResize"></elm-table>
 
             </div>
         </div>

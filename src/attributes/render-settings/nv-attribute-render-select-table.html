@@ -116,30 +116,30 @@
             box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
         }
 
-        #selectlist > stv-option {
+        #selectlist > elm-option {
             padding: 2px 4px;
         }
 
-        #selectlist > stv-option:hover {
+        #selectlist > elm-option:hover {
             background-color: var(--default-primary-color);
             color: var(--text-primary-color);
         }
     </style>
     <template>
-        <stv-panel id="panel" closable on-close="handleClose">
+        <elm-panel id="panel" closable on-close="handleClose">
             <div class="header">
                 <span>{{displayProperty}}</span> render configuration
             </div>
             <div class="container horizontal layout flex">
                 <div id="left" class="vertical layout">
 
-                    <label class="stv">Attribute name:</label>
-                    <stv-select-box id="columnSelectBox" style="height: 202px;" options="{{columns}}" on-select="handleColumnSelect">
-                    </stv-select-box>
+                    <label class="elm">Attribute name:</label>
+                    <elm-select-box id="columnSelectBox" style="height: 202px;" options="{{columns}}" on-select="handleColumnSelect">
+                    </elm-select-box>
 
                 </div>
                 <div class="vertical layout flex">
-                    <label class="stv">Assign render values to attributes:</label>
+                    <label class="elm">Assign render values to attributes:</label>
 
 
                     <div class="wrap">
@@ -158,24 +158,24 @@
                                         <div class="arrow" class="horizontal layout center"><i class="fa fa-angle-down"></i></div>
                                     </div>
                                     <!-- <div class="flex fakeselect">{{uitem.render}}</div> -->
-                                    <!-- <stv-select class="flex" on-change="handleSelect"> -->
+                                    <!-- <elm-select class="flex" on-change="handleSelect"> -->
                                     <!-- <template is="dom-repeat" items={{uitem.options}} as="option"> -->
-                                    <!-- <stv-option value="{{option}}">{{option}}</stv-option> -->
+                                    <!-- <elm-option value="{{option}}">{{option}}</elm-option> -->
                                     <!-- </template> -->
-                                    <!-- </stv-select> -->
+                                    <!-- </elm-select> -->
                                 </div>
                             </template>
                         </iron-list>
                     </div>
 
                     <div class="horizontal layout" style="margin-top:8px;">
-                        <label class="stv">Edit default:</label>
+                        <label class="elm">Edit default:</label>
 
-                        <stv-select style="width:230px" value="{{defaultValue}}">
+                        <elm-select style="width:230px" value="{{defaultValue}}">
                             <template is="dom-repeat" items={{options}} as="option">
-                                <stv-option value="{{option}}">{{option}}</stv-option>
+                                <elm-option value="{{option}}">{{option}}</elm-option>
                             </template>
-                        </stv-select>
+                        </elm-select>
                     </div>
 
 
@@ -183,16 +183,16 @@
             </div>
 
             <div class="footer horizontal layout flex">
-                <div class="stv-btn stv-btn-shdw" on-click="handleApplyDirect">Use attribute value directly</div>
+                <div class="elm-btn elm-btn-shdw" on-click="handleApplyDirect">Use attribute value directly</div>
                 <div class="flex"></div>
-                <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleClose">Cancel</div>
-                <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
+                <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleClose">Cancel</div>
+                <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
             </div>
 
-        </stv-panel>
+        </elm-panel>
         <div id="selectlist" on-click="handleSelectClick">
             <template is="dom-repeat" items={{options}} as="option">
-                <stv-option value="{{option}}">{{option}}</stv-option>
+                <elm-option value="{{option}}">{{option}}</elm-option>
             </template>
         </div>
 

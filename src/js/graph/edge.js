@@ -1,6 +1,6 @@
 function Edge(args) {
 
-    this.id = 'e' + stv.utils.genId();
+    this.id = 'e' + elm.utils.genId();
 
     this.relation = '';
     this.source;

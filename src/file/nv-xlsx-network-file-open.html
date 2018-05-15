@@ -38,60 +38,60 @@
 
 
         <div style="padding:10px 15px;">
-            <label class="stv">Select XLSX file:</label>
+            <label class="elm">Select XLSX file:</label>
 
-            <div class="stv-btn" on-click="handleBrowseClick">{{fileName}}</div>
+            <div class="elm-btn" on-click="handleBrowseClick">{{fileName}}</div>
             <input type="file" hidden id="fileInput" required on-change="handleInputChange">
 
-            <label class="stv">Select sheet</label>
+            <label class="elm">Select sheet</label>
 
-            <stv-dropdown>
-                <div data-button class="stv-btn">{{selectedSheet}}</div>
+            <elm-dropdown>
+                <div data-button class="elm-btn">{{selectedSheet}}</div>
                 <ul data-menu on-mousedown="handleSheetMenu">
                     <template is="dom-repeat" items="{{sheets}}" as="sheet">
                         <li data-value$="{{sheet}}">{{sheet}}</li>
                     </template>
                 </ul>
-                <label class="stv">Select columns:</label>
-            </stv-dropdown>
+                <label class="elm">Select columns:</label>
+            </elm-dropdown>
         </div>
 
         <div id="columns" class="horizontal layout">
-            <stv-dropdown class="flex">
-                <div data-button class="stv-btn">{{computeIndex(sourceColumnIndex)}}</div>
+            <elm-dropdown class="flex">
+                <div data-button class="elm-btn">{{computeIndex(sourceColumnIndex)}}</div>
                 <ul data-menu on-mousedown="handleSourceColumnIndex">
                     <template is="dom-repeat" items="{{columnsNumbers}}">
                         <li data-value$="{{index}}">{{computeIndex(index)}}</li>
                     </template>
                 </ul>
-            </stv-dropdown>
-            <stv-dropdown class="flex">
-                <div data-button class="stv-btn">{{computeIndex(relationColumnIndex)}}</div>
+            </elm-dropdown>
+            <elm-dropdown class="flex">
+                <div data-button class="elm-btn">{{computeIndex(relationColumnIndex)}}</div>
                 <ul data-menu on-mousedown="handleRelationColumnIndex">
                     <li data-value="none">none</li>
                     <template is="dom-repeat" items="{{columnsNumbers}}">
                         <li data-value$="{{index}}">{{computeIndex(index)}}</li>
                     </template>
                 </ul>
-            </stv-dropdown>
-            <stv-dropdown class="flex">
-                <div data-button class="stv-btn">{{computeIndex(targetColumnIndex)}}</div>
+            </elm-dropdown>
+            <elm-dropdown class="flex">
+                <div data-button class="elm-btn">{{computeIndex(targetColumnIndex)}}</div>
                 <ul data-menu on-mousedown="handleTargetColumnIndex">
                     <template is="dom-repeat" items="{{columnsNumbers}}">
                         <li data-value$="{{index}}">{{computeIndex(index)}}</li>
                     </template>
                 </ul>
-            </stv-dropdown>
+            </elm-dropdown>
         </div>
 
 
-        <stv-table id="table" enable-paging page-size="12" columns="{{columns}}" data="{{parsedData}}" style="height:436px"></stv-table>
+        <elm-table id="table" enable-paging page-size="12" columns="{{columns}}" data="{{parsedData}}" style="height:436px"></elm-table>
 
         <div class="footer horizontal layout center">
-            <div class="stv-txt">{{message}}</div>
+            <div class="elm-txt">{{message}}</div>
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width:100px;" on-click="handleCancel">Cancel</div>
-            <div class="stv-btn stv-btn-shdw" style="width:100px;" on-click="handleOk">OK</div>
+            <div class="elm-btn elm-btn-shdw" style="width:100px;" on-click="handleCancel">Cancel</div>
+            <div class="elm-btn elm-btn-shdw" style="width:100px;" on-click="handleOk">OK</div>
         </div>
 
         <nv-graph id="graph" vertices="{{vertices}}" edges="{{edges}}"></nv-graph>

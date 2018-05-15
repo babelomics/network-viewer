@@ -76,44 +76,44 @@
             content: ' \f106';
         }
 
-        input.stv[type="number"] {
+        input.elm[type="number"] {
             width: 100%;
         }
     </style>
     <template>
 
 
-        <stv-panel id="panel" closable on-close="handleClose">
+        <elm-panel id="panel" closable on-close="handleClose">
             <div class="header">
                 <span>{{displayProperty}}</span> render configuration
             </div>
             <div class="container horizontal layout flex">
                 <div id="left" class="vertical layout">
 
-                    <label class="stv">Attribute name:</label>
-                    <stv-select-box id="columnSelectBox" style="height: 100px;" options="{{columns}}" on-select="handleColumnSelect">
-                    </stv-select-box>
+                    <label class="elm">Attribute name:</label>
+                    <elm-select-box id="columnSelectBox" style="height: 100px;" options="{{columns}}" on-select="handleColumnSelect">
+                    </elm-select-box>
 
 
-                    <label class="stv" style="margin-top:8px;">Data type:</label>
-                    <stv-select-box id="typeSelectBox" options="{{attributeTypes}}" on-select="handleAttributeTypeSelect">
-                    </stv-select-box>
+                    <label class="elm" style="margin-top:8px;">Data type:</label>
+                    <elm-select-box id="typeSelectBox" options="{{attributeTypes}}" on-select="handleAttributeTypeSelect">
+                    </elm-select-box>
 
                     <div hidden$="{{!allowListParse}}">
-                        <label class="stv" style="margin-top:8px;">Parse data as:</label>
+                        <label class="elm" style="margin-top:8px;">Parse data as:</label>
 
-                        <stv-select-box id="parseSelectBox" options="{{attributeParseOptions}}" on-select="handleAttributeParseSelect">
-                        </stv-select-box>
+                        <elm-select-box id="parseSelectBox" options="{{attributeParseOptions}}" on-select="handleAttributeParseSelect">
+                        </elm-select-box>
                     </div>
 
                 </div>
                 <div class="vertical layout flex">
-                    <!--<label class="stv"><span>{{attributeType.title}}</span> mapping</label>-->
+                    <!--<label class="elm"><span>{{attributeType.title}}</span> mapping</label>-->
 
                     <template is="dom-if" if="{{isContinuousType(attributeType)}}">
                         <div class="horizontal layout">
-                            <label class="stv flex" on-click="handleAttributeValueHeaderClick">Attribute value</label>
-                            <label class="stv flex">Render value</label>
+                            <label class="elm flex" on-click="handleAttributeValueHeaderClick">Attribute value</label>
+                            <label class="elm flex">Render value</label>
                         </div>
 
                         <div class="vertical layout" style="margin-bottom:5px;">
@@ -124,21 +124,21 @@
                         </div>
 
                         <div class="horizontal layout end-justified" style="margin:0  0 5px 0">
-                            <div class="stv-btn stv-btn-shdw">
+                            <div class="elm-btn elm-btn-shdw">
                                 Max & Min &nbsp; <i class="fa fa-refresh" style="color:#FF6600"></i>
                             </div>
                             <div class="flex"></div>
-                            <div class="stv-btn stv-btn-shdw" on-click="handleApplyInterpolation">
+                            <div class="elm-btn elm-btn-shdw" on-click="handleApplyInterpolation">
                                 Interpolate &nbsp; <i class="fa fa-arrow-down" style="color:#0081c2"></i>
                             </div>
                             <div class="flex"></div>
-                            <div class="stv-btn stv-btn-shdw" on-click="handleAddPoint">
+                            <div class="elm-btn elm-btn-shdw" on-click="handleAddPoint">
                                 Add point &nbsp; <i class="fa fa-plus" style="color:#00AA33"></i>
                             </div>
                         </div>
                     </template>
 
-                    <label class="stv">Assign render values to attributes:</label>
+                    <label class="elm">Assign render values to attributes:</label>
 
                     <div class="wrap">
                         <div class="flex horizontal layout head">
@@ -151,7 +151,7 @@
                                 <div class="horizontal layout center row">
                                     <div class="flex">{{uitem.attribute}}</div>
                                     <div class="flex">
-                                        <input class="stv" type="number" value="{{uitem.render::input}}">
+                                        <input class="elm" type="number" value="{{uitem.render::input}}">
                                     </div>
                                 </div>
                             </template>
@@ -160,20 +160,20 @@
 
 
                     <div class="horizontal layout" hidden$="{{!isCategoricalType(attributeType)}}" style="margin-top:8px;">
-                        <label class="stv">Edit default:</label>
-                        <input class="stv flex" type="number" value="{{defaultValue::input}}">
+                        <label class="elm">Edit default:</label>
+                        <input class="elm flex" type="number" value="{{defaultValue::input}}">
                     </div>
 
 
                 </div>
             </div>
             <div class="footer horizontal layout flex">
-                <div class="stv-btn stv-btn-shdw" on-click="handleApplyDirect">Use attribute value directly</div>
+                <div class="elm-btn elm-btn-shdw" on-click="handleApplyDirect">Use attribute value directly</div>
                 <div class="flex"></div>
-                <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleClose">Cancel</div>
-                <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
+                <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleClose">Cancel</div>
+                <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
             </div>
-        </stv-panel>
+        </elm-panel>
 
         </div>
     </template>
@@ -250,19 +250,19 @@
             visibility: inherit;
         }
 
-        input.stv[type="number"] {
+        input.elm[type="number"] {
             width: 100%;
         }
     </style>
     <template>
         <div class="horizontal layout">
             <div class="flex">
-                <input class="stv" type="number" value="{{point.value::input}}">
+                <input class="elm" type="number" value="{{point.value::input}}">
             </div>
             <div class="flex">
-                <input class="stv" type="number" value="{{point.render::input}}">
+                <input class="elm" type="number" value="{{point.render::input}}">
             </div>
-            <div class="stv-btn stv-btn-shdw remove" allowRemove$="{{allowRemove}}" on-click="handleRemove"></div>
+            <div class="elm-btn elm-btn-shdw remove" allowRemove$="{{allowRemove}}" on-click="handleRemove"></div>
         </div>
     </template>
 </dom-module>

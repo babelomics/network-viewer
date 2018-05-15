@@ -51,19 +51,19 @@
     <template>
         <div class="container">
 
-            <label class="stv">Save current session:</label>
+            <label class="elm">Save current session:</label>
 
             <div class="horizontal layout">
                 <div class="flex">
-                    <input class="stv" type="text" value="{{sessionName::input}}" placeholder="Session name">
+                    <input class="elm" type="text" value="{{sessionName::input}}" placeholder="Session name">
                 </div>
-                <div class="stv-btn stv-btn-shdw" on-click="handleAddSession">
+                <div class="elm-btn elm-btn-shdw" on-click="handleAddSession">
                     Add session
                 </div>
             </div>
 
 
-            <label class="stv horizontal layout">
+            <label class="elm horizontal layout">
                 <div>Saved sessions:</div>
                 <div class="flex"></div>
                 <div><i hidden$="{{isMessageEmpty(message)}}" class="fa fa-circle-o-notch fa-spin"></i>
@@ -88,15 +88,15 @@
 
             <div class="horizontal layout">
                 <div class="horizontal layout flex">
-                    <div class="stv-btn stv-btn-shdw" on-click="handleLoadSession">
+                    <div class="elm-btn elm-btn-shdw" on-click="handleLoadSession">
                         Load session
                     </div>
-                    <div class="stv-btn stv-btn-shdw" on-click="handleRemoveSession">
+                    <div class="elm-btn elm-btn-shdw" on-click="handleRemoveSession">
                         Delete session
                     </div>
                 </div>
                 <div horizontal layout>
-                    <div class="stv-btn stv-btn-shdw" on-click="handleRemoveAllSessions">
+                    <div class="elm-btn elm-btn-shdw" on-click="handleRemoveAllSessions">
                         Delete all sessions
                     </div>
                 </div>
@@ -321,7 +321,7 @@
 
         _getFileContent: function(file, callback) {
             var content;
-            SteviaManager.files.content({
+            CbaManager.files.content({
                 id: file.id,
                 query: {
                     sid: Cookies('bioinfo_sid')
@@ -341,7 +341,7 @@
         _getSessionsFolder: function(studyId, callback) {
             var me = this;
             var folder;
-            SteviaManager.files.search({
+            CbaManager.files.search({
                 query: {
                     sid: Cookies('bioinfo_sid'),
                     studyId: studyId,
@@ -367,7 +367,7 @@
         _createSessionsFolder: function(studyId, callback) {
             var me = this;
             var folder;
-            SteviaManager.files.createFolder({
+            CbaManager.files.createFolder({
                 query: {
                     sid: Cookies('bioinfo_sid'),
                     folder: '.cellmaps_sessions',
@@ -392,7 +392,7 @@
         _getSessionsFiles: function(folder, callback) {
             var me = this;
             var files;
-            SteviaManager.files.list({
+            CbaManager.files.list({
                 id: folder.id,
                 query: {
                     sid: Cookies('bioinfo_sid'),
@@ -418,7 +418,7 @@
         },
         deleteFile: function(file, callback) {
             var me = this;
-            SteviaManager.files.delete({
+            CbaManager.files.delete({
                 id: file.id,
                 query: {
                     sid: Cookies('bioinfo_sid')
@@ -438,7 +438,7 @@
         },
         uploadFile: function(fileContent, fileName, callback) {
             var me = this;
-            var url = SteviaManager.files.upload({
+            var url = CbaManager.files.upload({
                 query: {
                     sid: Cookies("bioinfo_sid")
                 },

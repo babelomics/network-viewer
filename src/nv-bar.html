@@ -1,7 +1,7 @@
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../iron-flex-layout/iron-flex-layout-classes.html">
 
-<link rel="import" href="../../stevia-elements/src/dropdown/stv-dropdown.html">
+<link rel="import" href="../../cba-elements/src/dropdown/elm-dropdown.html">
 
 <dom-module id="nv-bar">
     <style is="custom-style" include="iron-flex iron-flex-reverse iron-flex-alignment iron-flex-factors iron-positioning">
@@ -20,13 +20,13 @@
             margin-left: 10px;
         }
 
-        stv-dropdown>[data-button]::after {
+        elm-dropdown>[data-button]::after {
             font-family: 'FontAwesome';
             content: '\f0d7';
             margin-left: 3px;
         }
 
-        stv-dropdown>[data-button] {
+        elm-dropdown>[data-button] {
             padding: 5px 10px;
         }
 
@@ -36,7 +36,7 @@
     </style>
     <template>
         <div id="bar" class="horizontal layout center">
-            <stv-dropdown>
+            <elm-dropdown>
                 <div data-button id="fileButton" style="border-width:0;">
                     File
                 </div>
@@ -69,8 +69,8 @@
                         </ul>
                     </li>
                 </ul>
-            </stv-dropdown>
-            <stv-dropdown>
+            </elm-dropdown>
+            <elm-dropdown>
                 <div data-button id="networkButton">
                     Network
                 </div>
@@ -137,8 +137,8 @@
                             </ul>
                         </li>
                 </ul>
-            </stv-dropdown>
-            <stv-dropdown>
+            </elm-dropdown>
+            <elm-dropdown>
                 <div data-button id="attributesButton">
                     Attributes
                 </div>
@@ -155,7 +155,7 @@
                         <li data-value="drugs" hidden$="{{testOr(lite,hideExternal)}}"> Import drugs by gene...</li>
                         <li data-value="diseases" hidden$="{{testOr(lite,hideExternal)}}"> Import diseases by gene...</li>
                 </ul>
-            </stv-dropdown>
+            </elm-dropdown>
             <!--<div class="">-->
             <!--<div tabindex="-1" id="renderingButton">-->
             <!--Rendering-->
@@ -165,7 +165,7 @@
             <!--&lt;!&ndash;<li data-divider>&ndash;&gt;-->
             <!--</ul>-->
             <!--</div>-->
-            <stv-dropdown hidden$="{{testOr(lite,hideExternal)}}">
+            <elm-dropdown hidden$="{{testOr(lite,hideExternal)}}">
                 <div data-button id="pluginsButton">
                     Analysis
                 </div>
@@ -196,8 +196,8 @@
                         </ul>
                     </li>
                 </ul>
-            </stv-dropdown>
-            <stv-dropdown hidden$="{{testOr(lite,hideExternal)}}">
+            </elm-dropdown>
+            <elm-dropdown hidden$="{{testOr(lite,hideExternal)}}">
                 <div data-button id="examplesButton">
                     Examples
                 </div>
@@ -208,11 +208,11 @@
                     <li data-value="example" data-subvalue="3">Mutational landscape oncogenes and tumor suppressors</li>
                     <li data-value="example" data-subvalue="4">PPI network with attributes</li>
                 </ul>
-            </stv-dropdown>
-            <div hidden class="stv-btn" data-value="save" on-click="handleClick">
+            </elm-dropdown>
+            <div hidden class="elm-btn" data-value="save" on-click="handleClick">
                 Save
             </div>
-            <div hidden id="configureButton" class="stv-btn" style="margin-right:10px;float:right;border-width:0;" on-click="handleConfigureClick">
+            <div hidden id="configureButton" class="elm-btn" style="margin-right:10px;float:right;border-width:0;" on-click="handleConfigureClick">
                 Configure
             </div>
         </div>

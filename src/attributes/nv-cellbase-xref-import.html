@@ -24,7 +24,7 @@
             padding: 5px;
         }
 
-        stv-select-box {
+        elm-select-box {
             overflow-y: auto;
             height: 150px;
         }
@@ -53,23 +53,23 @@
         <div id="main" class="flex horizontal layout">
 
             <div id="left">
-                <label class="stv">Species:</label>
+                <label class="elm">Species:</label>
 
-                <stv-select-box id="species" options="{{species}}" name-attribute="id" title-attribute="_title">
-                </stv-select-box>
+                <elm-select-box id="species" options="{{species}}" name-attribute="id" title-attribute="_title">
+                </elm-select-box>
 
-                <label class="stv" style="margin-top: 10px;">Attributes:</label>
+                <label class="elm" style="margin-top: 10px;">Attributes:</label>
 
-                <stv-select-box id="columns" options="{{columns}}">
-                </stv-select-box>
+                <elm-select-box id="columns" options="{{columns}}">
+                </elm-select-box>
 
             </div>
 
             <div id="right" class="flex">
-                <label class="stv">External references:</label>
+                <label class="elm">External references:</label>
                 <div class="selbox" style="height:329px;">
                     <template is="dom-repeat" items={{extList}}>
-                        <label class="stv-control">
+                        <label class="elm-control">
                             <input type="checkbox" checked$="{{item.selected}}" on-click="handleItemSelect">
                             <span>{{item.boxLabel}}</span>
                         </label>
@@ -79,14 +79,14 @@
         </div>
 
         <div class="footer horizontal layout flex">
-            <div class="stv-txt">
+            <div class="elm-txt">
                 <template is="dom-if" if="{{loading}}">
                     <i class="fa fa-spinner fa-spin" style="margin-right: 5px;"></i>
                 </template>
                 <span>{{message}}</span>
             </div>
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleGo">Go</div>
+            <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleGo">Go</div>
         </div>
 
     </template>

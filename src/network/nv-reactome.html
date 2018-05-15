@@ -38,14 +38,14 @@
         </form>
 
         <div class="footer horizontal layout flex">
-            <div class="stv-txt">
+            <div class="elm-txt">
                 <template is="dom-if" if="{{loading}}">
                     <i class="fa fa-spinner fa-spin" style="margin-right: 5px;"></i>
                 </template>
                 <span>{{message}}</span>
             </div>
             <!--<div class="flex"></div>-->
-            <!--<div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleGo">Search</div>-->
+            <!--<div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleGo">Search</div>-->
         </div>
     </template>
     <script>
@@ -91,7 +91,7 @@
             },
             //            _getSpecies: function () {
             //                var me = this;
-            //                SteviaManager.util.proxy({
+            //                CbaManager.util.proxy({
             //                    query: {
             //                        url: 'http://reactomews.oicr.on.ca:8080/ReactomeRESTfulAPI/RESTfulWS/speciesList'
             //                    },
@@ -359,9 +359,9 @@
     <template>
         <template is="dom-repeat" items="{{items}}" as="item" index-as="index" id="itemsTemplate">
             <div class="horizontal layout">
-                <div class="stv-txt collapsebox" data-checked$="{{item.open}}" data-leaf$="{{hasItems(item.length)}}" on-click="handleOpenNode">
+                <div class="elm-txt collapsebox" data-checked$="{{item.open}}" data-leaf$="{{hasItems(item.length)}}" on-click="handleOpenNode">
                 </div>
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" on-click="handleItemSelect" disabled$="{{loading}}" name="pw" />
                     <span>
                         <img src$="{{item.imgsrc}}" style="margin:0 5px;">

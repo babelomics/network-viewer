@@ -26,85 +26,85 @@
     </style>
     <template>
         <form id="main">
-            <div class="stv-formbox" style="margin-top:5px;">
-                <div class="stv-formtitle">Examples</div>
-                <div class="stv-formcontent">
-                    <div class="stv-btn stv-btn-shdw" style="display:inline-block" on-click="loadExample1">
+            <div class="elm-formbox" style="margin-top:5px;">
+                <div class="elm-formtitle">Examples</div>
+                <div class="elm-formcontent">
+                    <div class="elm-btn elm-btn-shdw" style="display:inline-block" on-click="loadExample1">
                         Downregulated in fibroblasts from old individuals, compared to young
                     </div>
-                    <div class="stv-btn stv-btn-shdw" on-click="handleDownloadFile" data-example="oldage_dn.txt" style="display:inline-block">
+                    <div class="elm-btn elm-btn-shdw" on-click="handleDownloadFile" data-example="oldage_dn.txt" style="display:inline-block">
                         <i class="fa fa-download"></i>
                     </div>
                     <br>
 
-                    <div class="stv-btn stv-btn-shdw" style="display:inline-block;margin-top:5px;" on-click="loadExample2">
+                    <div class="elm-btn elm-btn-shdw" style="display:inline-block;margin-top:5px;" on-click="loadExample2">
                         Upregulated by induction of exogenous BRCA1 in EcR-293 cells
                     </div>
-                    <div class="stv-btn stv-btn-shdw" on-click="handleDownloadFile" data-example="brca1_overexp_up.txt" style="display:inline-block">
+                    <div class="elm-btn elm-btn-shdw" on-click="handleDownloadFile" data-example="brca1_overexp_up.txt" style="display:inline-block">
                         <i class="fa fa-download"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Define your input data</div>
-                <div class="stv-formcontent horizontal layout">
-                    <label class="stv-control">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Define your input data</div>
+                <div class="elm-formcontent horizontal layout">
+                    <label class="elm-control">
                         <input id="inputModeOneList" name="mode" type="radio" value="one_list" checked="checked" on-click="modeChanged">
                         <span>One list</span>
                     </label>
-                    <label class="stv-control">
+                    <label class="elm-control">
                         <input id="inputModeTwoList" name="mode" class="fc-radioitem" type="radio" value="two_list" on-click="modeChanged">
                         <span>Comparing two lists</span>
                     </label>
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Select your input file</div>
-                <div class="stv-formcontent">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Select your input file</div>
+                <div class="elm-formcontent">
                     List 1:
-                    <stv-file-origin id="inputFile" selection-mode="file" allow-text-area allow-network bioformats="{{bioformats}}" projects="{{projects}}" columns="{{columns}}" items="{{items}}" selected="{{selected}}">
-                    </stv-file-origin>
+                    <elm-file-origin id="inputFile" selection-mode="file" allow-text-area allow-network bioformats="{{bioformats}}" projects="{{projects}}" columns="{{columns}}" items="{{items}}" selected="{{selected}}">
+                    </elm-file-origin>
 
 
                     <div id="list2Div" hidden>
                         <!--<br>-->
 
-                        <!--<div class="stv-btn stv-btn-shdw" style="width:150px;" on-click="handleShowList2Panel">-->
+                        <!--<div class="elm-btn elm-btn-shdw" style="width:150px;" on-click="handleShowList2Panel">-->
                         <!--Browse List 2 file...-->
                         <!--</div>-->
-                        <!--<stv-panel hidden fixed movable closable id="browserList2Panel" on-hidden="handlePanelHidden">-->
+                        <!--<elm-panel hidden fixed movable closable id="browserList2Panel" on-hidden="handlePanelHidden">-->
                         <!--<div class="header">-->
                         <!--Browse List 2 file...-->
                         <!--</div>-->
                         <!--<div class="container flex">-->
-                        <!--<stv-file-browser-->
+                        <!--<elm-file-browser-->
                         <!--id="browserList2"-->
                         <!--on-fileselect="handleFileSelect"-->
                         <!--bioformats="{{bioformats}}"-->
                         <!--projects="{{projects}}"-->
-                        <!--on-need-refresh="handleUserNeedRefresh"></stv-file-browser>-->
+                        <!--on-need-refresh="handleUserNeedRefresh"></elm-file-browser>-->
                         <!--</div>-->
-                        <!--</stv-panel>-->
+                        <!--</elm-panel>-->
                     </div>
                 </div>
             </div>
 
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">List nature</div>
-                <div class="stv-formcontent">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">List nature</div>
+                <div class="elm-formcontent">
                     <div id="typeDiv" class="horizontal layout">
-                        <label class="stv-control">
+                        <label class="elm-control">
                             <input id="type_1" name="type" class="fc-radioitem" type="radio" value="transcripts">
                             <span>Transcripts</span>
                         </label>
-                        <label class="stv-control">
+                        <label class="elm-control">
                             <input id="type_2" name="type" class="fc-radioitem" type="radio" value="proteins" checked>
                             <span>Proteins</span>
                         </label>
-                        <label class="stv-control">
+                        <label class="elm-control">
                             <input id="type_3" name="type" class="fc-radioitem" type="radio" value="genes">
                             <span>Genes</span>
                         </label>
@@ -112,42 +112,42 @@
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Species</div>
-                <div class="stv-formcontent">
-                    <div id="stv-interactomeDiv">
-                        <div class="stv-select" style="width:200px;">
-                            <stv-select name="interactome" id="interactome" class="fc-combobox" type="text" value="hsa">
-                                <stv-option name="interactome_1" id="interactome_1" class="fc-combobox-item" value="hsa" selected="selected">Homo sapiens
-                                </stv-option>
-                                <stv-option name="interactome_2" id="interactome_2" class="fc-combobox-item" value="mmu">Mus musculus
-                                </stv-option>
-                                <stv-option name="interactome_3" id="interactome_3" class="fc-combobox-item" value="dme">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Species</div>
+                <div class="elm-formcontent">
+                    <div id="elm-interactomeDiv">
+                        <div class="elm-select" style="width:200px;">
+                            <elm-select name="interactome" id="interactome" class="fc-combobox" type="text" value="hsa">
+                                <elm-option name="interactome_1" id="interactome_1" class="fc-combobox-item" value="hsa" selected="selected">Homo sapiens
+                                </elm-option>
+                                <elm-option name="interactome_2" id="interactome_2" class="fc-combobox-item" value="mmu">Mus musculus
+                                </elm-option>
+                                <elm-option name="interactome_3" id="interactome_3" class="fc-combobox-item" value="dme">
                                     Drosophila melanogaster
-                                </stv-option>
-                                <stv-option name="interactome_4" id="interactome_4" class="fc-combobox-item" value="sce">
+                                </elm-option>
+                                <elm-option name="interactome_4" id="interactome_4" class="fc-combobox-item" value="sce">
                                     Saccharomyces cerevisiae
-                                </stv-option>
-                                <stv-option name="interactome_5" id="interactome_5" class="fc-combobox-item" value="ath">
+                                </elm-option>
+                                <elm-option name="interactome_5" id="interactome_5" class="fc-combobox-item" value="ath">
                                     Arabidopsis thaliana
-                                </stv-option>
+                                </elm-option>
                                 <!--<option name="interactome_6" id="interactome_6" class="fc-combobox-item" value="eco">Escherichia coli (K12)</option>-->
                                 <!--<option name="interactome_7" id="interactome_7" class="fc-combobox-item" value="own">Own</option>-->
-                            </stv-select>
+                            </elm-select>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Select interactome confidence</div>
-                <div class="stv-formcontent">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Select interactome confidence</div>
+                <div class="elm-formcontent">
                     <div id="groupDiv">
-                        <label class="stv-control">
+                        <label class="elm-control">
                             <input id="group_1" name="group" class="fc-radioitem" type="radio" value="all" checked="checked">
                             <span>All ppis (all protein Protein-Protein Interactions detected experimentally)</span>
                         </label>
-                        <label class="stv-control">
+                        <label class="elm-control">
                             <input id="group_2" name="group" class="fc-radioitem" type="radio" value="curated" checked="checked">
                             <span>Curated (Protein-Protein Interactions detected with, at least, two different experimental methods)</span>
                         </label>
@@ -155,61 +155,61 @@
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Side for statistical tests</div>
-                <div id="sideDiv" class="stv-formcontent">
-                    <label class="stv-control">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Side for statistical tests</div>
+                <div id="sideDiv" class="elm-formcontent">
+                    <label class="elm-control">
                         <input id="side_1" name="side" class="fc-radioitem" type="radio" value="greater" checked="checked">
                         <span>Greater</span>
                     </label>
-                    <label class="stv-control">
+                    <label class="elm-control">
                         <input id="side_2" name="side" class="fc-radioitem" type="radio" value="less">
                         <span>Less</span>
                     </label>
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Allow one external intermediate in the subnetwork</div>
-                <div id="intermediateDiv" class="stv-formcontent horizontal layout">
-                    <label class="stv-control">
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Allow one external intermediate in the subnetwork</div>
+                <div id="intermediateDiv" class="elm-formcontent horizontal layout">
+                    <label class="elm-control">
                         <input id="intermediate_2" name="intermediate" class="fc-radioitem" type="radio" value="1" checked="checked">
                         <span>Yes</span>
                     </label>
-                    <label class="stv-control">
+                    <label class="elm-control">
                         <input id="intermediate_1" name="intermediate" class="fc-radioitem" type="radio" value="0">
                         <span>No</span>
                     </label>
                 </div>
             </div>
 
-            <div class="stv-formbox">
-                <div class="stv-formtitle">Job information</div>
-                <div class="stv-formcontent">
-                    <label class="stv">Output folder:</label>
+            <div class="elm-formbox">
+                <div class="elm-formtitle">Job information</div>
+                <div class="elm-formcontent">
+                    <label class="elm">Output folder:</label>
 
-                    <stv-file-origin id="outdir" selection-mode="folder" on-ok-click="handleOutputClickOk" projects="{{projects}}">
-                    </stv-file-origin>
+                    <elm-file-origin id="outdir" selection-mode="folder" on-ok-click="handleOutputClickOk" projects="{{projects}}">
+                    </elm-file-origin>
 
-                    <label class="stv">Job name:</label>
+                    <label class="elm">Job name:</label>
                     <br>
-                    <input class="stv" type="text" id="jobName" required style="width:150px;">
+                    <input class="elm" type="text" id="jobName" required style="width:150px;">
                     <br>
-                    <label class="stv">Description:</label>
-                    <textarea class="stv" id="description" required></textarea>
+                    <label class="elm">Description:</label>
+                    <textarea class="elm" id="description" required></textarea>
                 </div>
             </div>
 
 
             <div class="horizontal layout center-justified">
-                <div class="stv-btn stv-btn-shdw stv-btn-big" on-click="handleForm">
+                <div class="elm-btn elm-btn-shdw elm-btn-big" on-click="handleForm">
                     <i class="fa fa-rocket"></i> &nbsp; Launch job
                 </div>
             </div>
             <br>
         </form>
         <div class="footer horizontal layout flex">
-            <div class="stv-txt">
+            <div class="elm-txt">
                 <template is="dom-if" if="{{loading}}">
                     <i class="fa fa-spinner fa-spin" style="margin-right: 5px;"></i>
                 </template>
@@ -365,7 +365,7 @@
                 if (this.loading === false) {
                     this.loading = true;
                     this.message = 'Launching job...';
-                    SteviaManager.jobs.create({
+                    CbaManager.jobs.create({
                         query: query,
                         request: {
                             //method: 'POST',
@@ -472,7 +472,7 @@
 
             _createExampleFolder: function(exampleFolder, study, callback) {
                 var me = this;
-                SteviaManager.files.createFolder({
+                CbaManager.files.createFolder({
                     query: {
                         sid: Cookies('bioinfo_sid'),
                         studyId: study.id,
@@ -496,7 +496,7 @@
             _searchExampleFolder: function(exampleFolder, callback) {
                 var me = this;
                 var study = me.$.outdir.$.browser.projects[0].studies[0];
-                SteviaManager.files.search({
+                CbaManager.files.search({
                     query: {
                         sid: Cookies('bioinfo_sid'),
                         studyId: study.id,

@@ -68,41 +68,41 @@
         <div class="container horizontal layout">
             <div id="left" class="vertical layout">
 
-                <label class="stv">Filter attribute:</label>
+                <label class="elm">Filter attribute:</label>
 
-                <stv-select id="filterAttributeSelect">
+                <elm-select id="filterAttributeSelect">
                     <template is="dom-repeat" items="{{columns}}" as="column">
-                        <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                        <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                     </template>
-                </stv-select>
+                </elm-select>
 
 
-                <label class="stv">Filter data type:</label>
+                <label class="elm">Filter data type:</label>
 
-                <stv-select-box options="{{filterDataTypes}}" on-select="handleAttributeTypeSelect">
-                </stv-select-box>
+                <elm-select-box options="{{filterDataTypes}}" on-select="handleAttributeTypeSelect">
+                </elm-select-box>
 
 
                 <template is="dom-if" if="{{checkAttributeType(attributeType, 'string')}}">
-                    <label class="stv">Filter string matching:</label>
-                    <stv-select-box options="{{stringMatches}}" style="height: 122px;" on-select="handleStringMatchSelect">
-                    </stv-select-box>
+                    <label class="elm">Filter string matching:</label>
+                    <elm-select-box options="{{stringMatches}}" style="height: 122px;" on-select="handleStringMatchSelect">
+                    </elm-select-box>
 
                 </template>
 
                 <template is="dom-if" if="{{checkAttributeType(attributeType, 'number')}}">
-                    <label class="stv">Number matching:</label>
-                    <stv-select-box options="{{numberMatches}}" style="height: 122px;" on-select="handleNumberMatchSelect">
-                    </stv-select-box>
+                    <label class="elm">Number matching:</label>
+                    <elm-select-box options="{{numberMatches}}" style="height: 122px;" on-select="handleNumberMatchSelect">
+                    </elm-select-box>
                 </template>
 
-                <label class="stv">Create filter:</label>
+                <label class="elm">Create filter:</label>
 
                 <div class="vertical layout">
                     <div>
-                        <input class="stv" type="text" value="{{queryString::input}}" placeholder="Insert value">
+                        <input class="elm" type="text" value="{{queryString::input}}" placeholder="Insert value">
                     </div>
-                    <div style="margin-top:4px;" class="stv-btn stv-btn-shdw" on-click="handleCreateFilter">
+                    <div style="margin-top:4px;" class="elm-btn elm-btn-shdw" on-click="handleCreateFilter">
                         Add filter
                     </div>
                 </div>
@@ -110,7 +110,7 @@
             </div>
             <div id="right" class="vertical layout flex">
 
-                <label class="stv">Current filters:</label>
+                <label class="elm">Current filters:</label>
 
                 <div class="selbox flex" style="height:285px;">
                     <template is="dom-if" if="{{!thereAreFilters(filters.length)}}">
@@ -142,17 +142,17 @@
                         </div>
                     </template>
                 </div>
-                <div style="margin-top: 2px;" class="stv-btn stv-btn-shdw" on-click="handleDeleteFilters">
+                <div style="margin-top: 2px;" class="elm-btn elm-btn-shdw" on-click="handleDeleteFilters">
                     Clear all filters
                 </div>
             </div>
         </div>
 
         <div class="footer horizontal layout flex">
-            <div class="stv-btn stv-btn-shdw" on-click="handleRemoveItems">Remove selected</div>
+            <div class="elm-btn elm-btn-shdw" on-click="handleRemoveItems">Remove selected</div>
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" on-click="handleApplyFiltersInvert" style="width:100px;"> Invert select</div>
-            <div class="stv-btn stv-btn-shdw" on-click="handleApplyFilters" style="width:100px;">Select</div>
+            <div class="elm-btn elm-btn-shdw" on-click="handleApplyFiltersInvert" style="width:100px;"> Invert select</div>
+            <div class="elm-btn elm-btn-shdw" on-click="handleApplyFilters" style="width:100px;">Select</div>
         </div>
 
     </template>

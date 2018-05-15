@@ -37,75 +37,75 @@
         <form id="main" class="flex horizontal layout">
 
             <div id="left">
-                <label class="stv">Community detection method:</label>
+                <label class="elm">Community detection method:</label>
 
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" checked name="method" on-change="handleMethodFastGreedySelect">
                     <span>Fastgreedy</span>
                 </label>
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" name="method" on-change="handleMethodWalktrapSelect">
                     <span>Walktrap</span>
                 </label>
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" name="method" on-change="handleMethodInfomapSelect">
                     <span>Infomap</span>
                 </label>
 
 
-                <label class="stv">Consider network as directed:</label>
+                <label class="elm">Consider network as directed:</label>
 
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" checked name="type" on-change="handleDirectedNo">
                     <span>No</span>
                 </label>
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" name="type" on-change="handleDirectedYes">
                     <span>Yes</span>
                 </label>
 
-                <label class="stv">Consider network as weighted:</label>
+                <label class="elm">Consider network as weighted:</label>
 
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" checked name="weighted" on-change="handleWeightedNo">
                     <span>No</span>
                 </label>
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="radio" name="weighted" on-change="handleWeightedYes">
                     <span>Yes</span>
                 </label>
 
 
                 <div hidden$="{{checkWeighted(selectedWeighted, 'T')}}">
-                    <label class="stv">Use attribute for weight:</label>
+                    <label class="elm">Use attribute for weight:</label>
 
-                    <stv-select-box style="height:100px;" id="columns" options="{{columns}}" on-select="handleEditSelect">
-                    </stv-select-box>
+                    <elm-select-box style="height:100px;" id="columns" options="{{columns}}" on-select="handleEditSelect">
+                    </elm-select-box>
 
                 </div>
             </div>
 
             <div id="right" class="flex">
-                <label class="stv">Results:</label>
+                <label class="elm">Results:</label>
                 <template is="dom-if" if="{{checkResults(results)}}">
 
                     <div>A color has been assigned to the top communities.</div>
                     <div>Communities results are available as node attributes</div>
                     <br>
 
-                    <div class="stv-btn stv-btn-shdw" on-click="handleApplyColor" style="width:100px;">Apply</div>
+                    <div class="elm-btn elm-btn-shdw" on-click="handleApplyColor" style="width:100px;">Apply</div>
                     <br>
 
                     <div>
-                        <label class="stv">Global modularity:</label>
+                        <label class="elm">Global modularity:</label>
                         <span>{{results.globalModularity}}</span>
                     </div>
                     <div>
-                        <label class="stv">Number of communities with more than 2 nodes:</label>
+                        <label class="elm">Number of communities with more than 2 nodes:</label>
                         <span>{{results.numberCommunities}}</span>
                     </div>
                     <div>
-                        <label class="stv">Total number of communities:</label>
+                        <label class="elm">Total number of communities:</label>
                         <span>{{results.totalCommunities}}</span>
                     </div>
                 </template>
@@ -115,14 +115,14 @@
 
 
         <div class="footer horizontal layout flex">
-            <div class="stv-txt">
+            <div class="elm-txt">
                 <template is="dom-if" if="{{loading}}">
                     <i class="fa fa-spinner fa-spin" style="margin-right: 5px;"></i>
                 </template>
                 <span>{{message}}</span>
             </div>
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleGo">Run</div>
+            <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleGo">Run</div>
         </div>
 
     </template>
@@ -246,7 +246,7 @@
                     // # - infile: string. Path to the sif infile
                     // # - outdir: string. Path to the outdir
 
-                    SteviaManager.jobs.run({
+                    CbaManager.jobs.run({
                         query: {},
                         request: {
                             method: 'POST',

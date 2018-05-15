@@ -82,18 +82,18 @@
             margin-left: 0px;
         }
 
-        stv-color-menu {
+        elm-color-menu {
             z-index: 1;
             transition: opacity 0.1s, visibility 0.1s;
         }
 
-        stv-color-menu[hide=true] {
+        elm-color-menu[hide=true] {
             display: none;
             /*visibility: hidden;
             opacity: 0;*/
         }
 
-        stv-color-menu[hide=false] {
+        elm-color-menu[hide=false] {
             display: block;
             /*visibility: visible;
             opacity: 1;*/
@@ -109,32 +109,32 @@
             content: ' \f106';
         }
 
-        input.stv[type="text"] {
+        input.elm[type="text"] {
             width: 100%;
         }
     </style>
     <template>
-        <stv-panel id="panel" closable on-close="handleClose">
+        <elm-panel id="panel" closable on-close="handleClose">
             <div class="header">
                 <span>{{displayProperty}}</span> render configuration
             </div>
             <div class="container horizontal layout flex">
                 <div id="left" class="vertical layout">
 
-                    <label class="stv">Attribute name:</label>
-                    <stv-select-box id="columnSelectBox" style="height: 100px;" options="{{columns}}" on-select="handleColumnSelect">
-                    </stv-select-box>
+                    <label class="elm">Attribute name:</label>
+                    <elm-select-box id="columnSelectBox" style="height: 100px;" options="{{columns}}" on-select="handleColumnSelect">
+                    </elm-select-box>
 
 
-                    <label class="stv" style="margin-top:8px;">Data type:</label>
-                    <stv-select-box id="typeSelectBox" options="{{attributeTypes}}" on-select="handleAttributeTypeSelect">
-                    </stv-select-box>
+                    <label class="elm" style="margin-top:8px;">Data type:</label>
+                    <elm-select-box id="typeSelectBox" options="{{attributeTypes}}" on-select="handleAttributeTypeSelect">
+                    </elm-select-box>
 
                     <div hidden$="{{!allowListParse}}">
-                        <label class="stv" style="margin-top:8px;">Parse data as:</label>
+                        <label class="elm" style="margin-top:8px;">Parse data as:</label>
 
-                        <stv-select-box id="parseSelectBox" options="{{attributeParseOptions}}" on-select="handleAttributeParseSelect">
-                        </stv-select-box>
+                        <elm-select-box id="parseSelectBox" options="{{attributeParseOptions}}" on-select="handleAttributeParseSelect">
+                        </elm-select-box>
                     </div>
 
                 </div>
@@ -143,9 +143,9 @@
                     <div hidden$="{{!isContinuousType(attributeType)}}">
 
                         <div class="horizontal layout flex">
-                            <label class="stv flex" on-click="handleAttributeValueHeaderClick">Attribute value</label>
-                            <label class="stv flex">Render value</label>
-                            <label class="stv" style="width: 60px;text-align: right">Gradient</label>
+                            <label class="elm flex" on-click="handleAttributeValueHeaderClick">Attribute value</label>
+                            <label class="elm flex">Render value</label>
+                            <label class="elm" style="width: 60px;text-align: right">Gradient</label>
                         </div>
 
 
@@ -161,15 +161,15 @@
 
 
                         <div class="flex horizontal layout end-justified" style="margin:0  0 5px 0">
-                            <div class="stv-btn stv-btn-shdw">
+                            <div class="elm-btn elm-btn-shdw">
                                 Max & Min &nbsp; <i class="fa fa-refresh" style="color:#FF6600"></i>
                             </div>
                             <div class="flex"></div>
-                            <div class="stv-btn stv-btn-shdw" on-click="handleApplyInterpolation">
+                            <div class="elm-btn elm-btn-shdw" on-click="handleApplyInterpolation">
                                 Interpolate &nbsp; <i class="fa fa-arrow-down" style="color:#0081c2"></i>
                             </div>
                             <div class="flex"></div>
-                            <div class="stv-btn stv-btn-shdw" on-click="handleAddPoint">
+                            <div class="elm-btn elm-btn-shdw" on-click="handleAddPoint">
                                 Add point &nbsp; <i class="fa fa-plus" style="color:#00AA33"></i>
                             </div>
                         </div>
@@ -177,7 +177,7 @@
                     </div>
 
 
-                    <label class="stv">Assign render values to attributes:</label>
+                    <label class="elm">Assign render values to attributes:</label>
 
 
                     <div class="wrap">
@@ -193,7 +193,7 @@
                                     <div class="flex horizontal layout">
                                         <div tabindex="-1" class="colorbox" style$="{{_computeBackgroundColor(uitem.render)}}" on-click="handleChangeFocusInUniqueColor" on-focusout="handleChangeFocusOutUniqueColor"></div>
                                         <div class="flex">
-                                            <input class="stv" type="text" value="{{uitem.render::input}}">
+                                            <input class="elm" type="text" value="{{uitem.render::input}}">
                                         </div>
                                     </div>
                                 </div>
@@ -203,24 +203,24 @@
 
 
                     <div class="horizontal layout" hidden$="{{!isCategoricalType(attributeType)}}" style="margin-top:8px;">
-                        <label class="stv">Edit default:</label>
+                        <label class="elm">Edit default:</label>
                         <!--<div class="button action">Select all</div>-->
                         <!--<div class="button action">Deselect all</div>-->
                         <!--<div class="text">Selection:</div>-->
-                        <stv-color-picker class="flex" color="{{defaultValue}}"></stv-color-picker>
+                        <elm-color-picker class="flex" color="{{defaultValue}}"></elm-color-picker>
                     </div>
 
                 </div>
             </div>
 
             <div class="footer horizontal layout flex">
-                <div class="stv-btn stv-btn-shdw" on-click="handleApplyDirect">Use attribute value directly</div>
+                <div class="elm-btn elm-btn-shdw" on-click="handleApplyDirect">Use attribute value directly</div>
                 <div class="flex"></div>
-                <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleClose">Cancel</div>
-                <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
+                <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleClose">Cancel</div>
+                <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
             </div>
-        </stv-panel>
-        <stv-color-menu id="colormenu" hidden="{{hideColorMenu}}" class="flex" on-color-click="handleColorMenu"></stv-color-menu>
+        </elm-panel>
+        <elm-color-menu id="colormenu" hidden="{{hideColorMenu}}" class="flex" on-color-click="handleColorMenu"></elm-color-menu>
     </template>
     <script>
         Polymer({
@@ -334,20 +334,20 @@
             visibility: inherit;
         }
 
-        input.stv[type="text"] {
+        input.elm[type="text"] {
             width: 100%;
         }
     </style>
     <template>
         <div class=" horizontal layout">
             <div class="flex">
-                <input class="stv" type="number" value="{{point.value::input}}">
+                <input class="elm" type="number" value="{{point.value::input}}">
             </div>
 
             <!--<input flex type="color" value="{{point.render}}">-->
-            <stv-color-picker id="colorPicker" class="flex" on-color-click="handleColorPicker" color="{{point.render}}"></stv-color-picker>
+            <elm-color-picker id="colorPicker" class="flex" on-color-click="handleColorPicker" color="{{point.render}}"></elm-color-picker>
 
-            <div class="stv-btn stv-btn-shdw remove" allowRemove$="{{allowRemove}}" on-click="handleRemove"></div>
+            <div class="elm-btn elm-btn-shdw remove" allowRemove$="{{allowRemove}}" on-click="handleRemove"></div>
         </div>
     </template>
 </dom-module>

@@ -1,12 +1,12 @@
-<script src="../stevia-elements/src/manager/stevia-manager.js"></script>
+<script src="../cba-elements/src/manager/cba-manager.js"></script>
 <script src="../FileSaver.js/FileSaver.min.js"></script>
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../iron-list/iron-list.html">
 
-<script src="../stevia-elements/src/utils/utils.js"></script>
-<script src="../stevia-elements/src/utils/svg.js"></script>
+<script src="../cba-elements/src/utils/utils.js"></script>
+<script src="../cba-elements/src/utils/svg.js"></script>
 
 <script src="../d3/d3.min.js"></script>
 <script src="../cytoscape/dist/cytoscape.min.js"></script>
@@ -38,19 +38,19 @@
 <script src="src/js/data/text-network-data-adapter.js"></script>
 <script src="src/js/data/xlsx-network-data-adapter.js"></script>
 
-<script src="../stevia-elements/src/utils/data-source/data-source.js"></script>
-<script src="../stevia-elements/src/utils/data-source/file-data-source.js"></script>
-<script src="../stevia-elements/src/utils/data-source/string-data-source.js"></script>
+<script src="../cba-elements/src/utils/data-source/data-source.js"></script>
+<script src="../cba-elements/src/utils/data-source/file-data-source.js"></script>
+<script src="../cba-elements/src/utils/data-source/string-data-source.js"></script>
 
-<link rel="import" href="../stevia-elements/src/stv-panel.html">
-<link rel="import" href="../stevia-elements/src/dropdown/stv-dropdown.html">
-<link rel="import" href="../stevia-elements/src/stv-color-picker.html">
-<link rel="import" href="../stevia-elements/src/stv-color-menu.html">
-<link rel="import" href="../stevia-elements/src/stv-select-box.html">
-<link rel="import" href="../stevia-elements/src/stv-select.html">
-<link rel="import" href="../stevia-elements/src/table/stv-table.html">
-<link rel="import" href="../stevia-elements/src/form/stv-file-origin.html">
-<link rel="import" href="../stevia-elements/src/stv-dialog/stv-dialog.html">
+<link rel="import" href="../cba-elements/src/elm-panel.html">
+<link rel="import" href="../cba-elements/src/dropdown/elm-dropdown.html">
+<link rel="import" href="../cba-elements/src/elm-color-picker.html">
+<link rel="import" href="../cba-elements/src/elm-color-menu.html">
+<link rel="import" href="../cba-elements/src/elm-select-box.html">
+<link rel="import" href="../cba-elements/src/elm-select.html">
+<link rel="import" href="../cba-elements/src/table/elm-table.html">
+<link rel="import" href="../cba-elements/src/form/elm-file-origin.html">
+<link rel="import" href="../cba-elements/src/elm-dialog/elm-dialog.html">
 
 
 <!-- analysis -->
@@ -99,8 +99,8 @@
 <link rel="import" href="src/nv-tool-bar.html">
 
 
-<script src="../stevia-elements/src/manager/cellbase-manager.js"></script>
-<script src="../stevia-elements/src/manager/stevia-manager.js"></script>
+<script src="../cba-elements/src/manager/cellbase-manager.js"></script>
+<script src="../cba-elements/src/manager/cba-manager.js"></script>
 
 <dom-module id="network-viewer">
     <style is="custom-style" include="iron-flex iron-flex-reverse iron-flex-alignment iron-flex-factors iron-positioning">
@@ -130,7 +130,7 @@
             height: calc(100% - 126px);
         }
 
-        .stv-context {
+        .elm-context {
             min-width: 200px;
             cursor: pointer;
         }
@@ -190,145 +190,145 @@
         </nv-status-bar>
 
         <div class="right-side">
-            <stv-panel collapsible movable closable id="nodeRenderPanel">
+            <elm-panel collapsible movable closable id="nodeRenderPanel">
                 <div class="header">
                     Node visualization settings
                 </div>
                 <nv-attribute-node-render class="container" id="nodeRender" columns="{{vertexColumns}}" items="{{vertices}}" defaults="{{vertexDefaults}}" visual-sets="{{vertexVisualSets}}" on-labelAttribute="handleVertexDefaultLabelAttribute" on-labelsize="handleVertexDefaultLabelSize" on-labelpositionx="handleVertexDefaultLabelPositionX" on-labelpositiony="handleVertexDefaultLabelPositionY" on-opacity="handleVertexDefaultOpacity" on-shape="handleVertexDefaultShape" on-color="handleVertexDefaultColor" on-strokecolor="handleVertexDefaultStrokeColor" on-size="handleVertexDefaultSize" on-strokesize="handleVertexDefaultStrokeSize" on-area="handleVertexDefaultArea" on-strokeArea="handleVertexDefaultStrokeArea" on-xattribute="handleVertexDefaultXAttribute" on-yattribute="handleVertexDefaultYAttribute">
                 </nv-attribute-node-render>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel collapsible movable closable id="edgeRenderPanel">
+            <elm-panel collapsible movable closable id="edgeRenderPanel">
                 <div class="header">
                     Edge visualization settings
                 </div>
                 <nv-attribute-edge-render class="container" id="edgeRender" columns="{{edgeColumns}}" items="{{edges}}" defaults="{{edgeDefaults}}" visual-sets="{{edgeVisualSets}}" on-labelattribute="handleEdgeDefaultLabelAttribute" on-labelsize="handleEdgeDefaultLabelSize" on-opacity="handleEdgeDefaultOpacity" on-shaft="handleEdgeDefaultShaft" on-shape="handleEdgeDefaultShape" on-bidirectional="handleEdgeDefaultBidirectional" on-color="handleEdgeDefaultColor" on-size="handleEdgeDefaultSize">
                 </nv-attribute-edge-render>
-            </stv-panel>
+            </elm-panel>
         </div>
 
         <div class="left-side">
 
-            <stv-panel hidden collapsible fixed movable closable id="nodeSelectFilterPanel">
+            <elm-panel hidden collapsible fixed movable closable id="nodeSelectFilterPanel">
                 <div class="header">
                     Select nodes by attributes
                 </div>
                 <nv-select-filter class="container" id="nodeSelectFilter" columns="{{vertexColumns}}" items="{{vertices}}" selected="{{selectedVertices}}" filters="{{vertexDefaults.filters}}" on-invert-selection="selectVerticesInvert" on-remove-selected="removeSelectedVertices">
                 </nv-select-filter>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel hidden collapsible fixed movable closable id="edgeSelectFilterPanel">
+            <elm-panel hidden collapsible fixed movable closable id="edgeSelectFilterPanel">
                 <div class="header">
                     Select edges by attributes
                 </div>
                 <nv-select-filter class="container" id="edgeSelectFilter" columns="{{edgeColumns}}" items="{{edges}}" selected="{{selectedEdges}}" filters="{{edgeDefaults.filters}}" on-invert-selection="selectEdgesInvert" on-remove-selected="removeSelectedEdges">
                 </nv-select-filter>
-            </stv-panel>
+            </elm-panel>
 
 
-            <stv-panel hidden collapsible fixed movable closable id="networkEditPanel">
+            <elm-panel hidden collapsible fixed movable closable id="networkEditPanel">
                 <div class="header">
                     Edit Network
                 </div>
                 <nv-network-edit class="container" id="networkEdit" selected-vertices="{{selectedVertices}}" selected-edges="{{selectedEdges}}" vertices="{{vertices}}" edges="{{edges}}" on-remove-selected-edges="removeSelectedEdges" on-remove-selected-vertices="removeSelectedVertices" on-add-edge="handleNetworkEditAddEdge" on-add-vertex="handleNetworkEditAddVertex">
                 </nv-network-edit>
-            </stv-panel>
+            </elm-panel>
 
 
-            <stv-panel hidden collapsible fixed movable closable expandible constraint id="nodeAttributeEditPanel">
+            <elm-panel hidden collapsible fixed movable closable expandible constraint id="nodeAttributeEditPanel">
                 <div class="header">
                     Edit and filter node attributes
                 </div>
                 <nv-attribute-edit class="container" id="nodeAttributeEdit" columns="{{vertexColumns}}" items="{{vertices}}" selected="{{selectedVertices}}" on-selectedchange="handleAttributeEditVertexSelectedChange" on-selectall="selectAllVertices" on-deselectall="deselectAllVertices" on-update-row="handleVerticesUpdateRow" type="node">
                 </nv-attribute-edit>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel hidden collapsible fixed movable closable id="edgeAttributeEditPanel">
+            <elm-panel hidden collapsible fixed movable closable id="edgeAttributeEditPanel">
                 <div class="header">
                     Edit and filter edge attributes
                 </div>
                 <nv-attribute-edit class="container" id="edgeAttributeEdit" columns="{{edgeColumns}}" items="{{edges}}" selected="{{selectedEdges}}" on-selectedchange="handleAttributeEditEdgeSelectedChange" on-selectall="selectAllEdges" on-deselectall="deselectAllEdges" on-update-row="handleEdgesUpdateRow" type="edge">
                 </nv-attribute-edit>
-            </stv-panel>
+            </elm-panel>
 
 
-            <stv-panel hidden collapsible fixed movable closable id="cellbaseXrefImportPanel">
+            <elm-panel hidden collapsible fixed movable closable id="cellbaseXrefImportPanel">
                 <div class="header">
                     Import external references
                 </div>
                 <nv-cellbase-xref-import id="cellbaseXrefImport" class="container" items="{{vertices}}" columns="{{vertexColumns}}" on-add-columns="handleCellbaseAddColumns" hide-external="{{hideExternal}}">
                 </nv-cellbase-xref-import>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel hidden collapsible fixed movable closable id="functionalitiesPanel">
+            <elm-panel hidden collapsible fixed movable closable id="functionalitiesPanel">
                 <div class="header">
                     Import functional annotations
                 </div>
                 <nv-cellbase-functionalities-import id="functionalities" class="container" items="{{vertices}}" columns="{{vertexColumns}}" on-add-columns="handleCellbaseAddColumns" hide-external="{{hideExternal}}">
                 </nv-cellbase-functionalities-import>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel hidden collapsible fixed movable closable id="drugsPanel">
+            <elm-panel hidden collapsible fixed movable closable id="drugsPanel">
                 <div class="header">
                     Import drugs by gene
                 </div>
                 <nv-cellbase-drugs-import id="drugs" class="container" items="{{vertices}}" columns="{{vertexColumns}}" on-add-columns="handleCellbaseAddColumns" on-apply-color="handleApplyDrugsColor" on-apply-multicolor="handleApplyDrugsMulticolor" hide-external="{{hideExternal}}">
                 </nv-cellbase-drugs-import>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel hidden collapsible fixed movable closable id="diseasesPanel">
+            <elm-panel hidden collapsible fixed movable closable id="diseasesPanel">
                 <div class="header">
                     Import diseases by gene
                 </div>
                 <nv-cellbase-diseases-import id="drugs" class="container" items="{{vertices}}" columns="{{vertexColumns}}" on-add-columns="handleCellbaseAddColumns" on-apply-multicolor="handleApplyDiseasesMulticolor" hide-external="{{hideExternal}}">
                 </nv-cellbase-diseases-import>
-            </stv-panel>
+            </elm-panel>
 
 
-            <stv-panel hidden collapsible fixed movable closable id="intactImportPanel">
+            <elm-panel hidden collapsible fixed movable closable id="intactImportPanel">
                 <div class="header">
                     Find interactions
                 </div>
                 <nv-intact-import id="intactImport" class="container" items="{{vertices}}" columns="{{vertexColumns}}" selected="{{selectedVertices}}" on-graph="handleIntactGraph" hide-external="{{hideExternal}}">
                 </nv-intact-import>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel hidden collapsible fixed movable closable id="reactomeImportPanel">
+            <elm-panel hidden collapsible fixed movable closable id="reactomeImportPanel">
                 <div class="header">
                     Reactome import
                 </div>
                 <nv-reactome id="reactomeImport" class="container" on-graph="handleReactomeGraph">
                 </nv-reactome>
-            </stv-panel>
+            </elm-panel>
 
 
-            <stv-panel hidden collapsible fixed movable closable id="keggImportPanel">
+            <elm-panel hidden collapsible fixed movable closable id="keggImportPanel">
                 <div class="header">
                     Kegg import
                 </div>
                 <nv-kegg id="keggImport" class="container" on-graph="handleKeggGraph" hide-external="{{hideExternal}}">
                 </nv-kegg>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel hidden collapsible fixed movable closable id="communitiesStructureDetectionPanel">
+            <elm-panel hidden collapsible fixed movable closable id="communitiesStructureDetectionPanel">
                 <div class="header">
                     Network analysis: Community structure detection
                 </div>
                 <nv-communities-structure-detection id="communitiesStructureDetection" items="{{vertices}}" columns="{{vertexColumns}}" graph="{{graph}}" on-community="handleCommunityAttributes" on-apply-community="handleApplyCommunity" class="container">
                 </nv-communities-structure-detection>
-            </stv-panel>
+            </elm-panel>
 
 
-            <stv-panel hidden collapsible fixed movable closable id="topologicalStudyPanel">
+            <elm-panel hidden collapsible fixed movable closable id="topologicalStudyPanel">
                 <div class="header">
                     Network analysis: Topological study
                 </div>
                 <nv-topological-study id="topologicalStudy" items="{{vertices}}" columns="{{vertexColumns}}" graph="{{graph}}" on-topological="handleTopologicalAttributes" class="container">
                 </nv-topological-study>
-            </stv-panel>
+            </elm-panel>
 
 
-            <stv-panel hidden collapsible fixed movable closable id="configureForceDirectedPanel">
+            <elm-panel hidden collapsible fixed movable closable id="configureForceDirectedPanel">
                 <div class="header">
                     Force directed layout configuration
                     <a class="link" style="margin-left: 15px;" target="_blank" href="https://github.com/mbostock/d3/wiki/Force-Layout">
@@ -337,9 +337,9 @@
                 </div>
                 <nv-configure-force-directed id="configureForceDirected" class="container" vertex-columns="{{vertexColumns}}" edge-columns="{{edgeColumns}}" on-ok="handleForceDirectedConfig">
                 </nv-configure-force-directed>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel hidden collapsible fixed movable closable id="configureCosePanel">
+            <elm-panel hidden collapsible fixed movable closable id="configureCosePanel">
                 <div class="header">
                     Compound spring embedder layout configuration
                     <a class="link" style="margin-left: 15px;" target="_blank" href="http://js.cytoscape.org/#layouts/cose">
@@ -348,9 +348,9 @@
                 </div>
                 <nv-configure-spring-embedder id="configureCose" class="container" vertex-columns="{{vertexColumns}}" edge-columns="{{edgeColumns}}" on-ok="handleCoseConfig">
                 </nv-configure-spring-embedder>
-            </stv-panel>
+            </elm-panel>
 
-            <stv-panel hidden collapsible fixed movable closable id="configureConcentricPanel">
+            <elm-panel hidden collapsible fixed movable closable id="configureConcentricPanel">
                 <div class="header">
                     Concentric layout configuration
                     <a class="link" style="margin-left: 15px;" target="_blank" href="http://js.cytoscape.org/#layouts/concentric">
@@ -359,67 +359,67 @@
                 </div>
                 <nv-configure-concentric id="configureConcentric" class="container" vertex-columns="{{vertexColumns}}" edge-columns="{{edgeColumns}}" on-ok="handleConcentricConfig">
                 </nv-configure-concentric>
-            </stv-panel>
+            </elm-panel>
 
 
             <!--Menu file-->
             <div style="position:fixed;z-index:10">
-                <stv-panel modal fixed style hidden="{{!computeSelectedMenu(selectedMenu, 'import-sif')}}">
+                <elm-panel modal fixed style hidden="{{!computeSelectedMenu(selectedMenu, 'import-sif')}}">
                     <div class="header">
                         Import a network SIF file
                     </div>
                     <nv-sif-network-file-open id="importSif" class="container" selected-menu="{{selectedMenu}}" on-graph="handleImportSif">
                     </nv-sif-network-file-open>
-                </stv-panel>
+                </elm-panel>
 
 
-                <stv-panel modal fixed hidden="{{!computeSelectedMenu(selectedMenu, 'import-text')}}">
+                <elm-panel modal fixed hidden="{{!computeSelectedMenu(selectedMenu, 'import-text')}}">
                     <div class="header">
                         Import a network Text file
                     </div>
                     <nv-text-network-file-open id="importText" class="container" selected-menu="{{selectedMenu}}" on-graph="handleImportText">
                     </nv-text-network-file-open>
-                </stv-panel>
+                </elm-panel>
 
 
-                <stv-panel modal fixed hidden="{{!computeSelectedMenu(selectedMenu, 'import-xlsx')}}">
+                <elm-panel modal fixed hidden="{{!computeSelectedMenu(selectedMenu, 'import-xlsx')}}">
                     <div class="header">
                         Import a network XLSX file
                     </div>
                     <nv-xlsx-network-file-open id="importXLSX" class="container" selected-menu="{{selectedMenu}}" on-graph="handleImportText">
                     </nv-xlsx-network-file-open>
-                </stv-panel>
+                </elm-panel>
 
 
                 <template is="dom-if" if="{{computeSelectedMenu(selectedMenu, 'import-node-attributes')}}">
-                    <stv-panel modal fixed>
+                    <elm-panel modal fixed>
                         <div class="header">
                             Import Node attributes file
                         </div>
                         <nv-attribute-network-file-open class="container" selected-menu="{{selectedMenu}}" on-open="handleImportNodeAttr">
                         </nv-attribute-network-file-open>
-                    </stv-panel>
+                    </elm-panel>
                 </template>
 
                 <template is="dom-if" if="{{computeSelectedMenu(selectedMenu, 'import-edge-attributes')}}">
-                    <stv-panel modal fixed>
+                    <elm-panel modal fixed>
                         <div class="header">
                             Import edge attributes file
                         </div>
                         <nv-attribute-network-file-open class="container" selected-menu="{{selectedMenu}}" on-open="handleImportEdgeAttr">
                         </nv-attribute-network-file-open>
-                    </stv-panel>
+                    </elm-panel>
                 </template>
             </div>
 
 
         </div>
 
-        <ul id="imagecontextmenu" class="stv-context" hidden>
+        <ul id="imagecontextmenu" class="elm-context" hidden>
             <li on-click="handleContextRemoveBackGroundImage">Remove</li>
         </ul>
 
-        <ul id="vertexcontextmenu" class="stv-context" hidden>
+        <ul id="vertexcontextmenu" class="elm-context" hidden>
             <li on-click="handleContextRemoveVertex">Delete node</li>
             <li on-click="handleContextRemoveSelectedVertices" hidden$="{{checkContextOneSelected(selectedVertices.length)}}">Delete selected nodes</li>
             <li data-divider></li>
@@ -440,7 +440,7 @@
                 </div>
             </li>
         </ul>
-        <ul id="edgecontextmenu" class="stv-context" hidden>
+        <ul id="edgecontextmenu" class="elm-context" hidden>
             <li on-click="handleContextRemoveEdge">Delete edge</li>
             <li on-click="handleContextRemoveSelectedEdges" hidden$="{{checkContextOneSelected(selectedEdges.length)}}">Delete selected edges</li>
             <li data-divider></li>
@@ -460,12 +460,12 @@
         </ul>
 
         <nv-graph id="graph" vertices="{{vertices}}" edges="{{edges}}"></nv-graph>
-        <stv-dropdown id="nodeTooltip" no-min-width>
+        <elm-dropdown id="nodeTooltip" no-min-width>
             <ul data-menu>
                 <div id="nodeTooltipContent" data-nohide style="padding:10px;">
                 </div>
             </ul>
-        </stv-dropdown>
+        </elm-dropdown>
     </template>
 </dom-module>
 <script>
@@ -1440,7 +1440,7 @@
         },
         handleSessionStartMenu: function(e) {
             var me = this;
-            new StvDialog().confirm('All changes will be lost. Are you sure?', function(res) {
+            new elmDialog().confirm('All changes will be lost. Are you sure?', function(res) {
                 if (res) {
                     me.startOver();
                 }
@@ -1490,7 +1490,7 @@
                 });
                 var initialFileName = 'network.json.gz';
             }
-            new StvDialog({
+            new elmDialog({
                 defaultText: initialFileName
             }).prompt('Please enter file name:', function(res, text) {
                 if (res) {
@@ -1776,9 +1776,9 @@
                 this.selectVerticesByAttribute(e.detail.columnName, e.detail.value);
             }
             if (this.selectedVertices.length == 0) {
-                stv.utils.msg('Search results', 'Your search using ' + str + ' "' + e.detail.value + '" using did not match any node.');
+                elm.utils.msg('Search results', 'Your search using ' + str + ' "' + e.detail.value + '" using did not match any node.');
             } else {
-                stv.utils.msg('Search results', this.selectedVertices.length + ' nodes found using ' + str + '. The found nodes has been selected.');
+                elm.utils.msg('Search results', this.selectedVertices.length + ' nodes found using ' + str + '. The found nodes has been selected.');
             }
         },
         handleVertexNameField: function(e) {
@@ -2026,7 +2026,7 @@
         },
         handleContextRemoveVertex: function(e) {
             var me = this;
-            new StvDialog().confirm('Remove selected vertex?', function(res) {
+            new elmDialog().confirm('Remove selected vertex?', function(res) {
                 if (res) {
                     me._hideVertexContextMenu();
                     me.removeVertex(me.lastContextVertex);
@@ -2036,7 +2036,7 @@
         },
         handleContextRemoveEdge: function(e) {
             var me = this;
-            new StvDialog().confirm('Remove selected edge?', function(res) {
+            new elmDialog().confirm('Remove selected edge?', function(res) {
                 if (res) {
                     me._hideEdgeContextMenu();
                     me.removeEdge(me.lastContextEdge);
@@ -2046,7 +2046,7 @@
         },
         handleContextRemoveSelectedVertices: function(e) {
             var me = this;
-            new StvDialog().confirm('Remove selected vertices?', function(res) {
+            new elmDialog().confirm('Remove selected vertices?', function(res) {
                 if (res) {
                     me._hideVertexContextMenu();
                     me.removeSelectedVertices();
@@ -2056,7 +2056,7 @@
         },
         handleContextRemoveSelectedEdges: function(e) {
             var me = this;
-            new StvDialog().confirm('Remove selected edges?', function(res) {
+            new elmDialog().confirm('Remove selected edges?', function(res) {
                 if (res) {
                     me._hideVertexContextMenu();
                     me.removeSelectedEdges();
@@ -2910,7 +2910,7 @@
                                 }
                             });
                         } else {
-                            new StvDialog().alert('Please select only one vertex to use it as root.');
+                            new elmDialog().alert('Please select only one vertex to use it as root.');
                         }
                         break;
                     case 'Grid':

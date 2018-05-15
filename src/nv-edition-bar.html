@@ -1,7 +1,7 @@
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../iron-flex-layout/iron-flex-layout-classes.html">
 
-<link rel="import" href="../../stevia-elements/src/dropdown/stv-dropdown.html">
+<link rel="import" href="../../cba-elements/src/dropdown/elm-dropdown.html">
 
 <dom-module id="nv-edition-bar">
     <style is="custom-style" include="iron-flex iron-flex-reverse iron-flex-alignment iron-flex-factors iron-positioning">
@@ -20,23 +20,23 @@
             margin-left: 10px;
         }
 
-        stv-dropdown>[data-button] {
+        elm-dropdown>[data-button] {
             margin-left: 5px;
         }
     </style>
     <template>
         <div id="bar" class="horizontal layout center">
-            <div title="Show node controls" class="stv-btn" data-checked$="{{isVertexBarSelected(selectedBar)}}" data-bar="vertex" on-click="handleSelectedBar" style="border-right: none;">
+            <div title="Show node controls" class="elm-btn" data-checked$="{{isVertexBarSelected(selectedBar)}}" data-bar="vertex" on-click="handleSelectedBar" style="border-right: none;">
                 Nodes
             </div>
-            <div title="Show edge controls" class="stv-btn" data-checked$="{{isEdgeBarSelected(selectedBar)}}" data-bar="edge" on-click="handleSelectedBar">
+            <div title="Show edge controls" class="elm-btn" data-checked$="{{isEdgeBarSelected(selectedBar)}}" data-bar="edge" on-click="handleSelectedBar">
                 Edges
             </div>
             <div id="vertexToolbar" class="horizontal layout center" hidden$="{{!isVertexBarSelected(selectedBar)}}">
-                <input hidden value="{{vertexNameField}}" id="vertexNameField" class="stv" type="text" placeholder="name" on-keypress="handleVertexNameField" style="width: 70px; margin-left: 5px;">
+                <input hidden value="{{vertexNameField}}" id="vertexNameField" class="elm" type="text" placeholder="name" on-keypress="handleVertexNameField" style="width: 70px; margin-left: 5px;">
 
-                <stv-dropdown title="Change the shape of the selected node(s)">
-                    <div data-button id="vertexShapeButton" class="stv-btn">
+                <elm-dropdown title="Change the shape of the selected node(s)">
+                    <div data-button id="vertexShapeButton" class="elm-btn">
                         <i class="fa fa-star"></i>
                     </div>
                     <ul data-menu id="vertexShapeMenu">
@@ -45,10 +45,10 @@
                         <li on-mousedown="handleVertexShape" data-value="ellipse">Ellipse</li>
                         <li on-mousedown="handleVertexShape" data-value="rectangle">Rectangle</li>
                     </ul>
-                </stv-dropdown>
+                </elm-dropdown>
 
-                <stv-dropdown title="Change the opacity of the selected node(s)">
-                    <div data-button id="vertexOpacityButton" class="stv-btn">
+                <elm-dropdown title="Change the opacity of the selected node(s)">
+                    <div data-button id="vertexOpacityButton" class="elm-btn">
                         <i class="fa fa-adjust"></i>
                     </div>
                     <ul data-menu id="vertexOpacityMenu">
@@ -58,10 +58,10 @@
                         <li on-mousedown="handleVertexOpacity" data-value="0.25">High</li>
                         <li on-mousedown="handleVertexOpacity" data-value="0">Invisible</li>
                     </ul>
-                </stv-dropdown>
+                </elm-dropdown>
 
-                <stv-dropdown title="Change the size of the selected node(s)" style="margin-left: 10px">
-                    <div data-button id="vertexSizeButton" class="stv-btn" style="border-right: none">
+                <elm-dropdown title="Change the size of the selected node(s)" style="margin-left: 10px">
+                    <div data-button id="vertexSizeButton" class="elm-btn" style="border-right: none">
                         <i class="fa fa-circle"></i>
                     </div>
                     <ul data-menu id="vertexSizeMenu">
@@ -79,13 +79,13 @@
                         <li on-mousedown="handleVertexSize" data-value="140">140</li>
                         <li on-mousedown="handleVertexSize" data-value="160">160</li>
                     </ul>
-                </stv-dropdown>
-                <input value="{{vertexSizeField::input}}" on-input="handleVertexSizeField" id="vertexSizeField" class="stv" type="text" style="width: 50px;border-right-width:0">
+                </elm-dropdown>
+                <input value="{{vertexSizeField::input}}" on-input="handleVertexSizeField" id="vertexSizeField" class="elm" type="text" style="width: 50px;border-right-width:0">
 
-                <stv-color-picker ctitle="Change the color of the selected node(s)" id="vertexColorPicker" color="{{vertexColor}}" on-color-click="handleVertexColor" style="float:left;width:90px;"></stv-color-picker>
+                <elm-color-picker ctitle="Change the color of the selected node(s)" id="vertexColorPicker" color="{{vertexColor}}" on-color-click="handleVertexColor" style="float:left;width:90px;"></elm-color-picker>
 
-                <stv-dropdown title="Change the stroke size of the selected node(s)" style="margin-left: 10px">
-                    <div data-button id="vertexStrokeSizeButton" class="stv-btn" style="border-right: none">
+                <elm-dropdown title="Change the stroke size of the selected node(s)" style="margin-left: 10px">
+                    <div data-button id="vertexStrokeSizeButton" class="elm-btn" style="border-right: none">
                         <i class="fa fa-circle-o"></i>
                     </div>
                     <ul data-menu id="vertexStrokeSizeMenu">
@@ -100,14 +100,14 @@
                         <li on-mousedown="handleVertexStrokeSize" data-value="9">9</li>
                         <li on-mousedown="handleVertexStrokeSize" data-value="10">10</li>
                     </ul>
-                </stv-dropdown>
-                <input value="{{vertexStrokeSizeField::input}}" on-input="handleVertexStrokeSizeField" id="vertexStrokeSizeField" class="stv" type="text" style="width: 50px;border-right-width:0">
+                </elm-dropdown>
+                <input value="{{vertexStrokeSizeField::input}}" on-input="handleVertexStrokeSizeField" id="vertexStrokeSizeField" class="elm" type="text" style="width: 50px;border-right-width:0">
 
-                <stv-color-picker ctitle="Change the stroke color of the selected node(s)" id="vertexStrokeColorPicker" color="{{vertexStrokeColor}}" on-color-click="handleVertexStrokeColor" style="float:left;width:90px;"></stv-color-picker>
+                <elm-color-picker ctitle="Change the stroke color of the selected node(s)" id="vertexStrokeColorPicker" color="{{vertexStrokeColor}}" on-color-click="handleVertexStrokeColor" style="float:left;width:90px;"></elm-color-picker>
 
 
-                <stv-dropdown title="Change the label size of the selected node(s)" style="margin-left: 10px">
-                    <div data-button id="vertexLabelSizeButton" class="stv-btn">
+                <elm-dropdown title="Change the label size of the selected node(s)" style="margin-left: 10px">
+                    <div data-button id="vertexLabelSizeButton" class="elm-btn">
                         <i class="fa fa-text-height"></i>
                     </div>
                     <ul data-menu id="vertexLabelSizeMenu">
@@ -119,36 +119,36 @@
                         <li on-mousedown="handleVertexLabelSize" data-value="16">16</li>
                         <li on-mousedown="handleVertexLabelSize" data-value="18">18</li>
                     </ul>
-                </stv-dropdown>
+                </elm-dropdown>
 
 
                 <!--<div  style="margin-left: 10px">-->
-                <!--<div tabindex="-1" id="vertexSearchButton" class="stv-btn" style="border-right: none;">-->
+                <!--<div tabindex="-1" id="vertexSearchButton" class="elm-btn" style="border-right: none;">-->
                 <!--<i class="fa fa-search"></i></div>-->
                 <!--<ul id="vertexSearchMenu"></ul>-->
                 <!--</div>-->
-                <!-- <div class="stv-select" title="Select nodes by attribute" style="width:70px;margin-left: 5px;border-right-width: 0;"> -->
-                <stv-select style="width:100px;margin-left: 5px;border-right-width: 0;" id="nodeSearchSelect" title="Select nodes by attribute">
-                    <stv-option value="all">All</stv-option>
+                <!-- <div class="elm-select" title="Select nodes by attribute" style="width:70px;margin-left: 5px;border-right-width: 0;"> -->
+                <elm-select style="width:100px;margin-left: 5px;border-right-width: 0;" id="nodeSearchSelect" title="Select nodes by attribute">
+                    <elm-option value="all">All</elm-option>
                     <template is="dom-repeat" items={{vertexColumns}} as="column">
-                        <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                        <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                     </template>
-                </stv-select>
+                </elm-select>
                 <!-- </div> -->
-                <input on-keypress="handleVertexSearch" id="vertexSearchField" class="stv" type="text" placeholder="Search" style="width: 100px; margin-right:3px;">
+                <input on-keypress="handleVertexSearch" id="vertexSearchField" class="elm" type="text" placeholder="Search" style="width: 100px; margin-right:3px;">
 
                 <div style="width:90px;" title="Selection color">
-                    <stv-color-picker ctitle="Select node selection color" color="{{selectionColor}}">
-                    </stv-color-picker>
+                    <elm-color-picker ctitle="Select node selection color" color="{{selectionColor}}">
+                    </elm-color-picker>
                 </div>
             </div>
 
             <!--Edges -->
             <div id="edgeToolbar" class="flex horizontal layout" hidden$="{{!isEdgeBarSelected(selectedBar)}}">
-                <input hidden id="edgeNameField" class="stv" type="text" placeholder="name" on-keypress="handleEdgeNameField" style="width: 70px;margin-left: 5px;">
+                <input hidden id="edgeNameField" class="elm" type="text" placeholder="name" on-keypress="handleEdgeNameField" style="width: 70px;margin-left: 5px;">
 
-                <stv-dropdown title="Change the head shape of the selected edge(s)" style="margin-left: 5px">
-                    <div data-button id="edgeShapeButton" class="stv-btn">
+                <elm-dropdown title="Change the head shape of the selected edge(s)" style="margin-left: 5px">
+                    <div data-button id="edgeShapeButton" class="elm-btn">
                         <i class="fa fa-location-arrow"></i>
                     </div>
                     <ul data-menu id="edgeShapeMenu">
@@ -158,10 +158,10 @@
                         <li on-mousedown="handleEdgeShape" data-value="dot">Dot</li>
                         <li on-mousedown="handleEdgeShape" data-value="odot">Dot o</li>
                     </ul>
-                </stv-dropdown>
+                </elm-dropdown>
 
-                <stv-dropdown title="Change the opacity of the selected edge(s)">
-                    <div data-button id="edgeOpacityButton" class="stv-btn">
+                <elm-dropdown title="Change the opacity of the selected edge(s)">
+                    <div data-button id="edgeOpacityButton" class="elm-btn">
                         <i class="fa fa-adjust"></i>
                     </div>
                     <ul data-menu id="edgeOpacityMenu">
@@ -171,30 +171,30 @@
                         <li on-mousedown="handleEdgeOpacity" data-value="0.25">High</li>
                         <li on-mousedown="handleEdgeOpacity" data-value="0">Invisible</li>
                     </ul>
-                </stv-dropdown>
+                </elm-dropdown>
 
-                <stv-dropdown title="Change the edge shaft of the selected edge(s)" style="margin-left: 5px">
-                    <div data-button id="edgeShaftButton" class="stv-btn">
+                <elm-dropdown title="Change the edge shaft of the selected edge(s)" style="margin-left: 5px">
+                    <div data-button id="edgeShaftButton" class="elm-btn">
                         <i class="fa fa-ellipsis-h"></i>
                     </div>
                     <ul data-menu id="edgeShaftMenu">
                         <li on-mousedown="handleEdgeShaft" data-value="solid">Solid</li>
                         <li on-mousedown="handleEdgeShaft" data-value="dashed">Dashed</li>
                     </ul>
-                </stv-dropdown>
+                </elm-dropdown>
 
-                <stv-dropdown title="Change the edge bidirectionality of the selected edge(s)" style="margin-left: 5px">
-                    <div data-button id="edgeBidirectionalButton" class="stv-btn">
+                <elm-dropdown title="Change the edge bidirectionality of the selected edge(s)" style="margin-left: 5px">
+                    <div data-button id="edgeBidirectionalButton" class="elm-btn">
                         <i class="fa fa-expand"></i>
                     </div>
                     <ul data-menu id="edgeBidirectionalMenu">
                         <li on-mousedown="handleEdgeBidirectional" data-value="true">true</li>
                         <li on-mousedown="handleEdgeBidirectional" data-value="false">false</li>
                     </ul>
-                </stv-dropdown>
+                </elm-dropdown>
 
-                <stv-dropdown title="Change the size of the selected edges(s)" style="margin-left: 5px">
-                    <div data-button id="edgeSizeButton" class="stv-btn" style="border-right: none">
+                <elm-dropdown title="Change the size of the selected edges(s)" style="margin-left: 5px">
+                    <div data-button id="edgeSizeButton" class="elm-btn" style="border-right: none">
                         <i class="fa fa-minus"></i>
                     </div>
                     <ul data-menu id="edgeSizeMenu">
@@ -209,14 +209,14 @@
                         <li on-mousedown="handleEdgeSize" data-value="9">9</li>
                         <li on-mousedown="handleEdgeSize" data-value="10">10</li>
                     </ul>
-                </stv-dropdown>
-                <input value="{{edgeSizeField::input}}" on-input="handleEdgeSizeField" id="edgeSizeField" class="stv" type="text" style="width: 50px;border-right-width: 0">
+                </elm-dropdown>
+                <input value="{{edgeSizeField::input}}" on-input="handleEdgeSizeField" id="edgeSizeField" class="elm" type="text" style="width: 50px;border-right-width: 0">
 
-                <stv-color-picker ctitle="Change the color of the selected edges(s)" id="edgeColorPicker" style="float:left;width:90px;" on-color-click="handleEdgeColor" color="#888888"></stv-color-picker>
+                <elm-color-picker ctitle="Change the color of the selected edges(s)" id="edgeColorPicker" style="float:left;width:90px;" on-color-click="handleEdgeColor" color="#888888"></elm-color-picker>
 
 
-                <stv-dropdown title="Change the label size of the selected edges(s)" style="margin-left: 5px">
-                    <div data-button id="edgeLabelSizeButton" class="stv-btn">
+                <elm-dropdown title="Change the label size of the selected edges(s)" style="margin-left: 5px">
+                    <div data-button id="edgeLabelSizeButton" class="elm-btn">
                         <i class="fa fa-text-height"></i>
                     </div>
                     <ul data-menu id="edgeLabelSizeMenu">
@@ -228,23 +228,23 @@
                         <li on-mousedown="handleEdgeLabelSize" data-value="16">16</li>
                         <li on-mousedown="handleEdgeLabelSize" data-value="18">18</li>
                     </ul>
-                </stv-dropdown>
+                </elm-dropdown>
 
                 <!--<div  style="margin-left: 10px">-->
-                <!--<div tabindex="-1" id="edgeSearchButton" class="stv-btn" style="border-right: none;">-->
+                <!--<div tabindex="-1" id="edgeSearchButton" class="elm-btn" style="border-right: none;">-->
                 <!--<i class="fa fa-search"></i>-->
                 <!--</div>-->
                 <!--<ul id="edgeSearchMenu"></ul>-->
                 <!--</div>-->
 
-                <div hidden class="stv-select">
+                <div hidden class="elm-select">
                     <select id="edgeSearchSelect" style="width:70px;margin-left: 10px;border-right-width: 0;">
                         <template is="dom-repeat" items={{edgeColumns}} as="column">
                             <option value="{{column.name}}">{{column.title}}</option>
                         </template>
                     </select>
                 </div>
-                <input hidden on-keypress="handleEdgeSearch" id="edgeSearchField" class="stv" type="text" placeholder="Search" style="width: 80px;">
+                <input hidden on-keypress="handleEdgeSearch" id="edgeSearchField" class="elm" type="text" placeholder="Search" style="width: 80px;">
             </div>
 
         </div>

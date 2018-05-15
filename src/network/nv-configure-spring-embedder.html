@@ -14,7 +14,7 @@
         }
 
         #main .horizontal.layout > div,
-        stv-select {
+        elm-select {
             margin: 0 0 4px 4px;
         }
 
@@ -43,87 +43,87 @@
             <div class="title">Node related settings</div>
 
             <div class="horizontal layout">
-                <label class="stv">Node repulsion:</label>
+                <label class="elm">Node repulsion:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" value="{{nodeRepulsion::input}}">
+                    <input class="elm" type="number" value="{{nodeRepulsion::input}}">
                 </div>
 
-                <stv-select style="width:114px;" id="nodeRepulsionSelect">
-                    <stv-option value="none">None</stv-option>
+                <elm-select style="width:114px;" id="nodeRepulsionSelect">
+                    <elm-option value="none">None</elm-option>
                     <template is="dom-repeat" items="{{vertexColumns}}" as="column">
-                        <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                        <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                     </template>
-                </stv-select>
+                </elm-select>
             </div>
             <br>
 
             <div class="title">Edge related settings</div>
             <div class="horizontal layout">
-                <label class="stv">Ideal edge length:</label>
+                <label class="elm">Ideal edge length:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" value="{{idealEdgeLength::input}}">
+                    <input class="elm" type="number" value="{{idealEdgeLength::input}}">
                 </div>
 
-                <stv-select style="width:114px;" id="idealEdgeLengthSelect">
-                    <stv-option value="none">None</stv-option>
+                <elm-select style="width:114px;" id="idealEdgeLengthSelect">
+                    <elm-option value="none">None</elm-option>
                     <template is="dom-repeat" items="{{edgeColumns}}" as="column">
-                        <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                        <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                     </template>
-                </stv-select>
+                </elm-select>
             </div>
             <div class="horizontal layout">
-                <label class="stv">Edge elasticity:</label>
+                <label class="elm">Edge elasticity:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" value="{{edgeElasticity::input}}">
+                    <input class="elm" type="number" value="{{edgeElasticity::input}}">
                 </div>
 
-                <stv-select style="width:114px;" id="edgeElasticitySelect">
-                    <stv-option style="width:11" value="none">None</stv-option>
+                <elm-select style="width:114px;" id="edgeElasticitySelect">
+                    <elm-option style="width:11" value="none">None</elm-option>
                     <template is="dom-repeat" items="{{edgeColumns}}" as="column">
-                        <stv-option value="{{column.name}}">{{column.title}}</stv-option>
+                        <elm-option value="{{column.name}}">{{column.title}}</elm-option>
                     </template>
-                </stv-select>
+                </elm-select>
             </div>
             <br>
 
             <div class="title">Global settings</div>
 
             <div class="horizontal layout">
-                <label class="stv">Component spacing:</label>
+                <label class="elm">Component spacing:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" min="0" value="{{componentSpacing::input}}">
+                    <input class="elm" type="number" min="0" value="{{componentSpacing::input}}">
                 </div>
             </div>
             <div class="horizontal layout">
-                <label class="stv">Node overlap:</label>
+                <label class="elm">Node overlap:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" min="0" value="{{nodeOverlap::input}}">
+                    <input class="elm" type="number" min="0" value="{{nodeOverlap::input}}">
                 </div>
             </div>
             <div class="horizontal layout">
-                <label class="stv">Nesting factor:</label>
+                <label class="elm">Nesting factor:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" min="0" value="{{nestingFactor::input}}">
+                    <input class="elm" type="number" min="0" value="{{nestingFactor::input}}">
                 </div>
             </div>
             <div class="horizontal layout">
-                <label class="stv">Gravity:</label>
+                <label class="elm">Gravity:</label>
 
                 <div class="flex">
-                    <input class="stv" type="number" min="0" value="{{gravity::input}}">
+                    <input class="elm" type="number" min="0" value="{{gravity::input}}">
                 </div>
             </div>
         </div>
 
         <div class="footer horizontal layout center">
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
+            <div class="elm-btn elm-btn-shdw" style="width: 100px;" on-click="handleOk">OK</div>
         </div>
 
     </template>

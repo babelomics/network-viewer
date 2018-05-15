@@ -46,30 +46,30 @@
     <template>
         <div id="main" class="horizontal layout">
             <div id="left" class="vertical layout">
-                <label class="stv">Select attributes file:</label>
+                <label class="elm">Select attributes file:</label>
 
-                <div class="stv-btn" on-click="handleBrowseClick">{{fileName}}</div>
+                <div class="elm-btn" on-click="handleBrowseClick">{{fileName}}</div>
                 <input type="file" hidden required id="fileInput" on-change="handleInputChange">
                 <br>
 
-                <label class="stv-control">
+                <label class="elm-control">
                     <input type="checkbox" on-change="handleFirstLineColumns">
                     <span>Use first line as column name</span>
                 </label>
 
                 <br>
-                <label class="stv">Select and rename attributes:</label>
+                <label class="elm">Select and rename attributes:</label>
 
                 <div class="columns flex">
                     <template is="dom-repeat" items={{columns}} as="column">
                         <div class="column-control horizontal layout flex" hidden$="{{!isColumnEditable(column)}}">
-                            <label class="stv-control">
+                            <label class="elm-control">
                                 <input type="checkbox" checked data-index$="{{index}}" on-change="handleIgnoreColumn">
                                 <span></span>
                             </label>
 
                             <div class="flex">
-                                <input class="stv" type="text" value="{{column.title::input}}">
+                                <input class="elm" type="text" value="{{column.title::input}}">
                             </div>
                         </div>
                     </template>
@@ -78,14 +78,14 @@
             <div>
 
             </div>
-            <stv-table id="table" class="flex" enable-paging page-size="12" columns="{{columns}}" data="{{data}}" style="height:436px" hidden$="{{isDataEmpty(data)}}"></stv-table>
+            <elm-table id="table" class="flex" enable-paging page-size="12" columns="{{columns}}" data="{{data}}" style="height:436px" hidden$="{{isDataEmpty(data)}}"></elm-table>
         </div>
 
         <div class="footer horizontal layout center">
-            <div class="stv-txt">{{message}}</div>
+            <div class="elm-txt">{{message}}</div>
             <div class="flex"></div>
-            <div class="stv-btn stv-btn-shdw" style="width:100px;" on-click="handleCancel">Cancel</div>
-            <div class="stv-btn stv-btn-shdw" style="width:100px;" on-click="handleOk">OK</div>
+            <div class="elm-btn elm-btn-shdw" style="width:100px;" on-click="handleCancel">Cancel</div>
+            <div class="elm-btn elm-btn-shdw" style="width:100px;" on-click="handleOk">OK</div>
         </div>
     </template>
 </dom-module>
