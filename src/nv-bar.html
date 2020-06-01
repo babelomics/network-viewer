@@ -41,12 +41,12 @@
                     File
                 </div>
                 <ul id="fileMenu" data-menu>
-                    <li hidden$="{{lite}}" on-click="handleClick" data-value="session-start">New session...</li>
-                    <li hidden$="{{lite}}" on-click="handleClick" data-value="session-save">Download session...</li>
-                    <li hidden$="{{lite}}" on-click="handleOpenSession">Open session...</li>
+                    <li hidden$="{{testOr(lite,sLite)}}" on-click="handleClick" data-value="session-start">New session...</li>
+                    <li hidden$="{{testOr(lite,sLite)}}" on-click="handleClick" data-value="session-save">Download session...</li>
+                    <li hidden$="{{testOr(lite,sLite)}}" on-click="handleOpenSession">Open session...</li>
                     <input hidden type="file" style="position: fixed; top: -100em" id="openSessionInput" on-change="handleOpenSessionInputChange">
-                    <li hidden$="{{lite}}" data-divider></li>
-                    <li hidden$="{{lite}}" data-sub>Import
+                    <li hidden$="{{testOr(lite,sLite)}}" data-divider></li>
+                    <li hidden$="{{testOr(lite,sLite)}}" data-sub>Import
                         <ul on-click="handleClick">
                             <li data-value="import-sif">Network from SIF...</li>
                             <li data-value="import-xlsx">Network from XLSX...</li>
@@ -56,7 +56,7 @@
                             <li data-value="import-edge-attributes">Edge attributes ...</li>
                         </ul>
                     </li>
-                    <li hidden$="{{lite}}" data-divider></li>
+                    <li hidden$="{{testOr(lite,sLite)}}" data-divider></li>
                     <li data-sub>Export
                         <ul on-click="handleClick">
                             <li data-value="export-sif">Network as SIF</li>
@@ -75,8 +75,8 @@
                     Network
                 </div>
                 <ul data-menu id="networkMenu" on-click="handleClick">
-                    <li data-value="network-edit">Edit network...</li>
-                    <li data-sub hidden$="{{testOr(lite,hideExternal)}}">Import network
+                    <li data-value="network-edit" hidden$="{{testOr(lite,sLite)}}">Edit network...</li>
+                    <li data-sub hidden$="{{testOr(lite,hideExternal,sLite)}}">Import network
                         <ul>
                             <li data-value="reactome">Reactome...</li>
                             <li data-value="kegg">Kegg...</li>
@@ -84,7 +84,7 @@
                         </ul>
                     </li>
                     <!--<li data-value="network-edit">Edit network...</li>-->
-                    <li data-sub>Select
+                    <li data-sub hidden$="{{testOr(lite)}}">Select
                         <ul>
                             <li data-value="nodes-filter">Nodes by attributes...</li>
                             <li data-value="edges-filter">Edges by attributes...</li>
@@ -99,7 +99,7 @@
                                 <li data-value="network-select-all">Everything</li>
                         </ul>
                         </li>
-                        <li data-sub>Layout
+                        <li data-sub hidden$="{{testOr(lite,sLite)}}">Layout
                             <ul>
                                 <li data-value="layout-force-directed" data-sub>Force directed
                                     <!--<li data-value="layout-force-directed">Force directed-->
@@ -143,8 +143,8 @@
                     Attributes
                 </div>
                 <ul data-menu id="attributesMenu" on-click="handleClick">
-                    <li data-value="nodes-edit">Edit node attributes...</li>
-                    <li data-value="edges-edit">Edit edge attributes...</li>
+                    <li data-value="nodes-edit" hidden$="{{sLite}}">Edit node attributes...</li>
+                    <li data-value="edges-edit" hidden$="{{sLite}}">Edit edge attributes...</li>
                     <li data-divider>
                         <li data-value="node-simple-rendering">Node visualization settings...</li>
                         <li data-value="edge-simple-rendering">Edge visualization settings...</li>
@@ -228,6 +228,11 @@
                 reflectToAttribute: true
             },
             hideExternal: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            showSpecialBar: {
                 type: Boolean,
                 value: false,
                 reflectToAttribute: true
