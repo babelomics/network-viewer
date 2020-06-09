@@ -1,0 +1,150 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../iron-flex-layout/iron-flex-layout-classes.html">
+
+<link rel="import" href="../../cba-elements/src/dropdown/elm-dropdown.html">
+
+<dom-module id="nv-lite-bar">
+    <style is="custom-style" include="iron-flex iron-flex-reverse iron-flex-alignment iron-flex-factors iron-positioning">
+         :host {
+            display: block;
+            position: relative;
+            box-sizing: border-box;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #D9D9D9;
+            height: 20px;
+        }
+
+        #bar {
+            width: 99%;
+            height: 15px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        elm-dropdown>[data-button]::after {
+            font-family: 'FontAwesome';
+            content: '\f0d7';
+            margin-left: 3px;
+        }
+
+        elm-dropdown>[data-button] {
+            padding: 2px 10px;
+        }
+
+        .tool {
+            color: var(--secondary-text-color);
+        }
+    </style>
+    <template>
+        <div id="bar" class="horizontal layout center flex">
+            <elm-dropdown>
+                <div data-button id="fileButton" style="border-width:0;">
+                    Export
+                </div>
+                <ul id="fileMenu" data-menu on-click="handleClick">
+                    <li data-value="export-sif">Network as SIF</li>
+                    <li data-divider></li>
+                    <li data-value="export-svg">Network as SVG</li>
+                    <!--<li data-value="export-png">Network as PNG</li>-->
+                    <li data-divider></li>
+                    <li data-value="export-node-attributes">Node attributes as file</li>
+                    <li data-value="export-edge-attributes">Edge attributes as file</li>
+                </ul>
+            </elm-dropdown>
+            <elm-dropdown>
+                <div data-button id="networkButton">
+                    Select
+                </div>
+                <ul data-menu id="networkMenu" on-click="handleClick">
+                    <li data-value="nodes-filter">Nodes by attributes...</li>
+                    <li data-value="edges-filter">Edges by attributes...</li>
+                    <li data-divider>
+                    <li data-value="nodes-select-all">All nodes</li>
+                    <li data-value="nodes-select-first-neighbourhood">First neighbourhood nodes</li>
+                    <li data-value="nodes-select-invert">Invert node selection</li>
+                    <li data-divider></li>
+                    <li data-value="edges-select-all">All edges</li>
+                    <li data-value="edges-select-adjacent">Adjacent edges</li>
+                    <li data-divider></li>
+                    <li data-value="network-select-all">Everything</li>
+                </ul>
+            </elm-dropdown>
+            <elm-dropdown>
+                <div data-button id="attributesButton">
+                    visualization
+                </div>
+                <ul data-menu id="attributesMenu" on-click="handleClick">
+                    <li data-value="nodes-edit" >Edit node attributes...</li>
+                    <li data-value="edges-edit" >Edit edge attributes...</li>
+                    <li data-divider>
+                        <li data-value="node-simple-rendering">Node visualization settings...</li>
+                        <li data-value="edge-simple-rendering">Edge visualization settings...</li>
+
+                </ul>
+            </elm-dropdown>
+            
+        </div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: 'nv-lite-bar',
+        properties: {
+            lite: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            hideExternal: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            showSpecialBar: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            columns: {
+                type: Array,
+            }
+        },
+        ready: function() {
+            this.networkViewer = this.domHost;
+            this.pathwayViewer = this.networkViewer.domHost;
+        },
+        testOr: function() {
+            var b = false;
+            for (var i = 0; i < arguments.length; i++) {
+                var arg = arguments[i];
+                if (arg == true) {
+                    b = true;
+                    break;
+                }
+            }
+            return b;
+        },
+        handleClick: function(e) {
+            if ('value' in e.target.dataset) {
+                if (e.target.dataset.value.indexOf("layout-") === 0) {
+                    this.fire('layout', e.target.dataset);
+                } else {
+                    this.fire(e.target.dataset.value, e.target.dataset);
+                }
+            }
+        },
+        handleOpenSession: function(e) {
+            this.$.openSessionInput.value = null;
+            this.$.openSessionInput.click();
+        },
+        handleOpenSessionInputChange: function(e) {
+            var file = e.currentTarget.files[0];
+            if (file != null) {
+                this.fire('session-open', {
+                    file: file,
+                    inputChangeEvent: e
+                });
+            }
+        }
+    });
+</script>
