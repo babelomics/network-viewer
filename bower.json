@@ -8,7 +8,7 @@
     "tests"
   ],
   "dependencies": {
-    "cba-elements": "https://github.com/kinzaR/cba-elements.git#v1.7.2",
+    "cba-elements": "https://github.com/kinzaR/cba-elements.git#v1.7.3",
     "d3": "^3.5.17",
     "js-xlsx": "~0.7.11",
     "highcharts-release": "^4.2.5",
